@@ -13,16 +13,17 @@
 		<div class="login-form white-box">
 			<h1 class="login-heading-text color-gray">Welcome Back!</h1>
 			<div class="login-form-padding">
-			    <form class="floating-labels">
+			    <form method="POST" action="/tango" class="floating-labels">
+			    	{{ csrf_field() }}
 		        	<div class="form-group">
-		          		<input id="username" type="text" class="form-control" required>
+		          		<input id="username" type="text" class="form-control" name="username" required>
 		          		<span class="highlight"></span>
 		          		<span class="bar"></span>
 		          		<label for="username" class="color-gray">Username</label>
 		          		<i class="mdi mdi-email form-control-feedback color-gray"></i>
 		        	</div>
 		        	<div class="form-group">
-		          		<input id="password" type="password" class="form-control" required>
+		          		<input id="password" type="password" class="form-control" name="password" required>
 		          		<span class="highlight"></span>
 		          		<span class="bar"></span>
 		          		<label for="password" class="color-gray">Password</label>
@@ -37,6 +38,8 @@
                     <div class="form-group">
                     	<button type="submit" class="btn btn-info waves-effect waves-light">Login</button>
                     </div>
+
+                    @include ('layouts.errors')
 			    </form>
 			</div>
 		</div>
