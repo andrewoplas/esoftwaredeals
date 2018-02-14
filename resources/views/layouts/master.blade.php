@@ -7,17 +7,18 @@
     	<meta name="description" content="">
     	<meta name="author" content="">
     	<title>@yield('title')</title>
-	    <link href="../../../public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	    <link href="../../../public/css/ampleadmin/animate.css" rel="stylesheet">
+	    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	    <link href="/css/ampleadmin/animate.css" rel="stylesheet">
+	    <link href="/css/ampleadmin/style.css" rel="stylesheet">
 	    @yield('cssfiles')
-	    <link href="../../../public/css/ampleadmin/default.css" id="theme" rel="stylesheet">
+	    <link href="/css/ampleadmin/default.css" id="theme" rel="stylesheet">
 	</head>
 	<body>
 		@yield('content')
 
 
-		<script src="../../../public/js/jquery/jquery-3.3.1.min.js"></script>
-	    <script src="../../../public/js/bootstrap/bootstrap.min.js"></script>
+		<script src="/js/jquery/jquery-3.3.1.min.js"></script>
+	    <script src="/js/bootstrap/bootstrap.min.js"></script>
 		@yield('jsfiles')
 	</body>
 </html>
