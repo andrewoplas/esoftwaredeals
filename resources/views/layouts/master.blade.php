@@ -8,10 +8,10 @@
     	<meta name="author" content="">
     	<title>@yield('title')</title>
 	    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	    <link href="/css/ampleadmin/animate.css" rel="stylesheet">
-	    <link href="/css/ampleadmin/style.css" rel="stylesheet">
+	    <link href="/css/ampleadmin/css/animate.css" rel="stylesheet">
+	    <link href="/css/ampleadmin/css/style.css" rel="stylesheet">
 	    @yield('cssfiles')
-	    <link href="/css/ampleadmin/default.css" id="theme" rel="stylesheet">
+	    <link href="/css/ampleadmin/css/default.css" id="theme" rel="stylesheet">
 	</head>
 	<body>
 		@yield('content')

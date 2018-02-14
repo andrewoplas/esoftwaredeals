@@ -31,15 +31,21 @@
 		        	</div>
 		        	<div class="form-group" style="height: 38px">
 			        	<div class="checkbox checkbox-success">
-                            <input id="rememberme" type="checkbox" class="rememberme">
-                            <label for="rememberme">Keep me signed in</label>
+                            <input id="remember" type="checkbox" class="remember" name="remember">
+                            <label for="remember">Keep me signed in</label>
                         </div>
                     </div>
                     <div class="form-group">
                     	<button type="submit" class="btn btn-info waves-effect waves-light">Login</button>
                     </div>
 
-                    @include ('layouts.errors')
+                    @if (count($errors))
+						<div class="form-group">
+							@foreach ($errors->all() as $error)
+								<p class="text-danger text-center">{{ $error }}</p>
+							@endforeach
+						</div>
+					@endif
 			    </form>
 			</div>
 		</div>
