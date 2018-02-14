@@ -48,6 +48,7 @@ class SessionController extends Controller
     	$id = Auth::id();
     	DB::table('users')->where('id', $id)->update(['is_online' => 0]);
     	auth()->logout();
+    	DB::table('users')->where('id', 1)->update(['is_online' => 0]);
 
     	return redirect('/tango');
     }
