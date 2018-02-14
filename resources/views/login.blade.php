@@ -31,7 +31,7 @@
 		        	</div>
 		        	<div class="form-group" style="height: 38px">
 			        	<div class="checkbox checkbox-success">
-                            <input id="rememberme" type="checkbox" class="rememberme">
+                            <input id="rememberme" type="checkbox" name="rememberme[]" class="rememberme">
                             <label for="rememberme">Keep me signed in</label>
                         </div>
                     </div>
