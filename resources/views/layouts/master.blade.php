@@ -13,9 +13,10 @@
 	    @yield('cssfiles')
 	    <link href="/css/ampleadmin/default.css" id="theme" rel="stylesheet">
 	</head>
-	<body>
-		@yield('content')
-
+	<body class="fix-header">
+		<div id="wrapper">
+			@yield('content')
+		</div>
 
 		<script src="/js/jquery/jquery-3.3.1.min.js"></script>
 	    <script src="/js/bootstrap/bootstrap.min.js"></script>

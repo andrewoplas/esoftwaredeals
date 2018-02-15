@@ -14,3 +14,7 @@
 Route::get('/tango', function () {
     return view('login');
 });
+
+Route::get('/categories', 'CategoryController@index');
+
+Route::post('/categories', 'CategoryController@store');
