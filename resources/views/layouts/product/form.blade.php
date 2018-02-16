@@ -1,17 +1,16 @@
 @extends('layouts.master')
 
-<?php $form_type = $product === null? 'Edit' : 'Add'; ?>
+<?php $form_type = $product->exists == 1? 'Edit' : 'Add'; ?>
 
 @section('title')
 Product - {{ $form_type }}
 @endsection
 
 @section('cssfiles')
-<link href="../bower_components/footable/css/footable.core.css" rel="stylesheet">
-<link href="../bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-<link href="../bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-<link href="../bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-<link href="../bower_components/croppie/croppie.min.css" rel="stylesheet" />
+<link href="{{URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('/bower_components/croppie/croppie.css')}}" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -134,7 +133,7 @@ Product - {{ $form_type }}
                                     <div class="row">
                                         <div class="col-md-12 ">
                                             <div class="form-group">
-                                                <textarea class="form-control" name="description">{{@$product->description}}</textarea>
+                                                <textarea class="form-control" name="description" required="">{{@$product->description}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -143,13 +142,13 @@ Product - {{ $form_type }}
                                         <!--/span-->
                                         <div class="col-md-6">
                                             <h3 class="box-title m-t-10">Product Description</h3>
-                                            <img id="product_thumbnail {{$form_type == 'Add'?'hide':'show'}}" src="{{$product->image}}" width="350" />
+                                            <img class="{{$form_type == 'Add'?'hide':''}}" id="product_thumbnail" src="{{$product->image}}" width="350" />
                                             <input type="hidden" id="imagebase64" name="image">
                                             <div id="upload-display" style="width:350px;display: none;"></div>
                                             <br><br>
                                             <div class="fileupload btn btn-info waves-effect waves-light">
                                                 <span><i class="ion-upload m-r-5"></i>Upload</span>
-                                                <input type="file" class="upload" id="upload">
+                                                <input type="file" class="upload" id="upload" name="upload" required="">
                                             </div>
                                         </div>
                                     </div>
@@ -170,10 +169,11 @@ Product - {{ $form_type }}
 @include('layouts.footer');
 @endsection
 @section('jsfiles')
-<script src="../bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-<script src="../js/ampleadmin/jquery.slimscroll.js"></script>
-<script src="../bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-<script src="../bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-<script src="../bower_components/croppie/croppie.min.js"></script>
-<script src="../bower_components/croppie/croppie-custom.js"></script>
+<script src="{{URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js')}}"></script>
+<script src="{{URL::asset('/js/ampleadmin/jquery.slimscroll.js')}}"></script>
+<script src="{{URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js')}}"></script>
+<script src="{{URL::asset('/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js')}}"></script>
+<script src="{{URL::asset('/bower_components/croppie/croppie.min.js')}}"></script>
+<script src="{{URL::asset('/bower_components/croppie/croppie-custom.js')}}"></script>
+
 @endsection
