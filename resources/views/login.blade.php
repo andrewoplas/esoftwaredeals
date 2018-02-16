@@ -32,7 +32,7 @@
 		        	<div class="form-group" style="height: 38px">
 			        	<div class="checkbox checkbox-success">
                             <input id="remember" type="checkbox" class="remember" name="remember">
-                            <label for="remember">Keep me signed in</label>
+                            <label for="remember" class="color-light-gray">Keep me signed in</label>
                         </div>
                     </div>
                     <div class="form-group">
