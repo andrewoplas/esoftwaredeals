@@ -148,7 +148,8 @@ Product - {{ $form_type }}
                                             <br><br>
                                             <div class="fileupload btn btn-info waves-effect waves-light">
                                                 <span><i class="ion-upload m-r-5"></i>Upload</span>
-                                                <input type="file" class="upload" id="upload" name="upload" required="">
+                                                <input type="file" class="upload" id="upload" name="upload" 
+                                                {{ $form_type == 'Add'? 'required' : '' }}>
                                             </div>
                                         </div>
                                     </div>
