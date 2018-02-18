@@ -11,7 +11,7 @@ Route::get('/tango', function () {
 Route::get('/products', 'ProductsController@index');
 Route::get('/products/edit/{product}', 'ProductsController@show');
 Route::get('/products/add', 'ProductsController@show');
-Route::post('/products/edit/{product}', 'ProductsController@store');
+Route::post('/products/edit/{product}', 'ProductsController@update');
 Route::post('/products/add', 'ProductsController@store');
 
 Route::get('/categories', 'CategoryController@index');
