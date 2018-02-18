@@ -23,7 +23,6 @@
                     <li> <a href="/categories"><i class="fa-fw">C</i><span class="hide-menu">Categories</span></a> </li>
                 </ul>
             </li>
-                        
         </ul>
     </div>
 </div>
