@@ -13,11 +13,11 @@ body {
 }
 
 h1 {
-	font-size: 32px !important;
+	font-size: 24px !important;
 }
 
 p {
-	font-size: 18px !important;
+	font-size: 14px !important;
 }
 
 .color-blue {
@@ -41,15 +41,15 @@ p {
 
 .login-form {
 	padding: 0;
-	padding-top: 20px;
+	padding: 20px 0;
 	box-shadow: 0 1px 10px 0 rgba(0,0,0,0.4);
-	width: 35%;
+	width: 450px;
 	display: table;
 	margin: auto;
 }
 
 .login-form-padding {
-	padding: 15px 15px;
+	padding: 15px 15px 0;
 }
 
 .login-heading-text {
@@ -63,7 +63,7 @@ p {
 .floating-labels .form-control {
 	border-bottom: 2px solid #95989A;
 	border-radius: 0;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 .floating-labels .bar:after,
@@ -72,11 +72,11 @@ p {
 }
 
 .floating-labels label {
-	font-size: 18px;
+	font-size: 14px;
 }
 
 .mdi {
-	font-size: 23px;
+	font-size: 16px;
 }
 
 .checkbox label::before {
@@ -113,7 +113,7 @@ p {
     padding: 15px;
     background: #039BE5;
     border: 1px solid #039BE5;
-    font-size: 22px;
+    font-size: 16px;
 }
 
 @media only screen and (max-width: 600px) {

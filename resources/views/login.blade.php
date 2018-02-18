@@ -35,12 +35,10 @@
                             <label for="remember" class="color-light-gray">Keep me signed in</label>
                         </div>
                     </div>
-                    <div class="form-group">
-                    	<button type="submit" class="btn btn-info waves-effect waves-light">Login</button>
-                    </div>
+                	<button type="submit" class="btn btn-info waves-effect waves-light">Login</button>
 
                     @if (count($errors))
-						<div class="form-group">
+						<div class="form-group" style="margin-top: 25px; margin-bottom: 0">
 							@foreach ($errors->all() as $error)
 								<p class="text-danger text-center">{{ $error }}</p>
 							@endforeach

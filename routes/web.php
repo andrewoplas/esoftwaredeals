@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/tango', 'SessionController@create');
+Route::get('/tango', [ 'as' => 'login', 'uses' => 'SessionController@create']);
 Route::post('/tango', 'SessionController@store');
 Route::get('/logout', 'SessionController@destroy');
 
