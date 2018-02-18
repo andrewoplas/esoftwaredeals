@@ -118,52 +118,8 @@ p {
 
 @media only screen and (max-width: 600px) {
 
-	h1 {
-		font-size: 24px !important;
-	}
-
-	p {
-		font-size: 14px !important;
-	}
-
 	.login-form {
 		width: 100%;
-	}
-
-	.floating-labels .form-control {
-		font-size: 14px;
-	}
-
-	.floating-labels label {
-		font-size: 14px;
-	}
-
-	.mdi {
-		font-size: 14px;
-	}
-
-	.checkbox label::before {
-	    width: 20px;
-	    height: 20px;
-	}
-
-	.checkbox label {
-		padding-left: 5px;
-	}
-
-	.checkbox label::after {
-		font-size: 13px;
-		width: 20px;
-		height: 20px;
-	}
-
-	.checkbox input[type=checkbox] {
-		width: 20px;
-	    height: 20px;
-	}
-
-	.btn-info {
-		font-size: 14px;
 	}
 
 }
