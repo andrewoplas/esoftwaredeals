@@ -2,7 +2,7 @@
 
 Route::get('/tango', [ 'as' => 'login', 'uses' => 'SessionController@create']);
 Route::post('/tango', 'SessionController@store');
-Route::get('/logout', 'SessionController@destroy');
+Route::get('/tango/logout', 'SessionController@destroy');
 
 Route::get('/products', 'ProductsController@index');
 Route::get('/products/edit/{product}', 'ProductsController@show');

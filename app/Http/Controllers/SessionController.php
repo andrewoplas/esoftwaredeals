@@ -35,7 +35,7 @@ class SessionController extends Controller
     		$id = Auth::id();
     		DB::table('users')->where('id', $id)->update(['is_online' => 1]);
     		DB::table('users')->where('id', $id)->update(['last_logged_in' => Carbon::now()]);
-    		return redirect('/dashboard'); 
+    		return redirect('/tango/dashboard'); 
     	}
 
 		return back()->withErrors([
