@@ -12,12 +12,12 @@ class ProductsController extends Controller
 {
     public function index(){
           $products = Product::latest()->get();
-          return view('layouts.product.products', compact('products'));
+          return view('pages.products', compact('products'));
     }
 
     public function show(Product $product){
           $categories = Category::latest()->get();
-          return view('layouts.product.form', compact('product', 'categories'));
+          return view('pages.form', compact('product', 'categories'));
     }
 
     public function store(Request $request){ 
