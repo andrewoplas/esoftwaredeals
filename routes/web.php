@@ -12,3 +12,5 @@ Route::post('/products/add', 'ProductsController@store');
 
 Route::get('/categories', 'CategoryController@index');
 Route::post('/categories', 'CategoryController@store');
+Route::patch('/categories', 'CategoryController@update');
+Route::delete('/categories', 'CategoryController@delete');
