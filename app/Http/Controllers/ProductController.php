@@ -8,20 +8,24 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Product;
 use App\Category;
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
-    public function index(){
+    public function index()
+    {
           $products = Product::latest()->get();
           return view('pages.products', compact('products'));
     }
 
-    public function show(Product $product){
+    public function show(Product $product)
+    {
           $categories = Category::latest()->get();
-          return view('pages.form', compact('product', 'categories'));
+          $form_type = $product->exists == 1? 'Edit' : 'Add';
+          return view('pages.products_form', compact('product', 'categories', 'form_type'));
     }
 
-    public function store(Request $request){ 
-          $this->validate(request(),[
+    public function store(Request $request)
+    { 
+          $this->validate(request(), [
                'product_name' => 'required',
                'slug' => 'required',
                'category' => 'required|integer',
@@ -33,35 +37,38 @@ class ProductsController extends Controller
                'image' => 'required'
           ]);
           $modified_data = $request->all();
-          $modified_data['image'] = '/images/product_thumbnails/' . $request->input('slug') . '.png';
+          $modified_data['image'] = '/images/product_thumbnails/' . $request->slug . '.png';
 
           $data = $request->input('image');
           list($type, $data) = explode(';', $data);
           list(, $data)      = explode(',', $data);
           $data = base64_decode($data);
-          file_put_contents(public_path('\images\product_thumbnails\\' .  $request->input('slug') . '.png'), $data);
+          file_put_contents(public_path('\images\product_thumbnails\\' .  $request->slug . '.png'), $data);
 
           Product::create($modified_data);
-
-          return redirect('/products');
+          return redirect('/tango/products');
      }
 
-     public function update(Request $request){
-          $product = Product::select('slug')->where('id', '=', $request->input('id'))->get();
+     public function update(Request $request)
+     {
+          $product = Product::select('slug')->where('id', $request->id)->get();
           
-          if(strlen($request->input('image'))>10){
+          if(strlen($request->image)>10)
+          {
                unlink(public_path('/images/product_thumbnails/'. $product[0]->slug .'.png'));
-               $data = $request->input('image');
+               $data = $request->image;
                list($type, $data) = explode(';', $data);
                list(, $data)      = explode(',', $data);
                $data = base64_decode($data);
-               file_put_contents(public_path('\images\product_thumbnails\\' .  $request->input('slug') . '.png'), $data);
-          } else if($product[0]->slug != $request->input('slug')){
+               file_put_contents(public_path('\images\product_thumbnails\\' .  $request->slug . '.png'), $data);
+          } 
+          else if($product[0]->slug != $request->slug)
+          {
                Storage::disk('local_public')->move('/images/product_thumbnails/'. $product[0]->slug .'.png', 
-                              '/images/product_thumbnails/'. $request->input('slug') .'.png');     
+                              '/images/product_thumbnails/'. $request->slug .'.png');     
           } 
 
-          Product::where('id',$request->input('id'))
+          Product::where('id', $request->input('id'))
                ->update([
                     'product_name'=> $request->input('product_name'),
                     'slug'=> $request->input('slug'),
@@ -71,9 +78,9 @@ class ProductsController extends Controller
                     'description'=> $request->input('description'),
                     'quantity'=> $request->input('quantity'),
                     'availability'=> $request->input('availability'),
-                    'image'=> '/images/product_thumbnails/' . $request->input('slug') . '.png',
+                    'image'=> '/images/product_thumbnails/' . $request->slug . '.png',
                ]);
 
-          return redirect('/products');
+          return redirect('/tango/products');
      }
 }
