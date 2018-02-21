@@ -2,10 +2,17 @@
     "use strict";
 }
 
+var product_name = $("[name='product_name']").val();
 $("[name='product_name']").on("focusout", function(){
      var input = $(this).val();
      var slug = input.replace(/ /g, "-").toLowerCase();
      $("[name='slug']").val(slug);
+
+     if(product_name == input){
+          $("[name='edited']").val("0");
+     } else {
+          $("[name='edited']").val("1");
+     }
 });
 
 function confirm_delete(id, product_name, element){

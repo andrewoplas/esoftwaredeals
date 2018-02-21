@@ -52,8 +52,10 @@ class ProductController extends Controller
      public function update(Request $request)
      {
           $product = Product::select('slug')->where('id', $request->id)->get();
+          if($request->edited == 1){
+               $this->validate(request(), [ 'product_name' => 'required|unique:products' ]);
+          }
           $this->validate(request(), [
-               'product_name' => 'required|unique:products',
                'slug' => 'required',
                'category' => 'required|integer',
                'description' => 'required',
@@ -94,12 +96,9 @@ class ProductController extends Controller
 
           return redirect('/tango/products');
      }
-<<<<<<< Updated upstream
-=======
 
      public function destroy(Product $product){
           unlink(public_path('/images/product_thumbnails/'. $product->slug .'.png'));
           $product->forceDelete();
      }
->>>>>>> Stashed changes
 }

@@ -38,7 +38,8 @@
                                                   <h3 class="box-title">About Product</h3>
                                                   <hr>
 
-                                                  <input type="hidden" name="id" value="{{ @$product->id }}"> 
+                                                  <input type="hidden" name="id" value="{{ @$product->id }}">
+                                                  <input type="hidden" name="edited" value="0">
 
                                                   <div class="row">
                                                        <div class="col-md-6">
