@@ -12,3 +12,8 @@ Route::post('/products/add', 'ProductsController@store');
 
 Route::get('/categories', 'CategoryController@index');
 Route::post('/categories', 'CategoryController@store');
+
+Route::get('/tango/licenses', 'LicenseController@index');
+Route::get('/tango/licenses/add', 'LicenseController@create');
+Route::post('/tango/licenses/add', 'LicenseController@store');
+Route::post('/tango/licenses/delete', 'LicenseController@destroy');

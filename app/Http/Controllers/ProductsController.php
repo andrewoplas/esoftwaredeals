@@ -12,6 +12,7 @@ class ProductsController extends Controller
 {
     public function index(){
           $products = Product::latest()->get();
+          
           return view('pages.products', compact('products'));
     }
 
