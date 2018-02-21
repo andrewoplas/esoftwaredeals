@@ -7,6 +7,7 @@ Route::get('/tango/logout', 'SessionController@destroy');
 Route::get('/tango/products', 'ProductController@index');
 Route::get('/tango/products/edit/{product}', 'ProductController@show');
 Route::get('/tango/products/add', 'ProductController@show');
+Route::delete('/tango/delete/{product}', 'ProductController@destroy');
 Route::post('/tango/products/edit/{product}', 'ProductController@update');
 Route::post('/tango/products/add', 'ProductController@store');
 

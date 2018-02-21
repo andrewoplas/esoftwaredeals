@@ -10,21 +10,26 @@ use App\Category;
 
 class ProductController extends Controller
 {
-    public function index()
-    {
+     public function __construct()
+     {
+          //$this->middleware('auth');
+     }
+
+     public function index()
+     {
           $products = Product::latest()->get();
           return view('pages.products', compact('products'));
-    }
+     }
 
-    public function show(Product $product)
-    {
+     public function show(Product $product)
+     {
           $categories = Category::latest()->get();
           $form_type = $product->exists == 1? 'Edit' : 'Add';
           return view('pages.products_form', compact('product', 'categories', 'form_type'));
-    }
+     }
 
-    public function store(Request $request)
-    { 
+     public function store(Request $request)
+     { 
           $this->validate(request(), [
                'product_name' => 'required',
                'slug' => 'required',
@@ -82,5 +87,9 @@ class ProductController extends Controller
                ]);
 
           return redirect('/tango/products');
+     }
+
+     public function destroy(Product $product){
+          $product->forceDelete();
      }
 }
