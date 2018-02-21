@@ -74,7 +74,7 @@
                                                        <div class="col-md-6">
                                                             <div class="form-group">
                                                                  <label class="control-label">Slug</label>
-                                                                 <input type="text" class="form-control" name="slug" value="{{ @$product->slug }}" required> 
+                                                                 <input type="text" class="form-control" name="slug" value="{{ @$product->slug }}" required readonly> 
                                                             </div>
                                                        </div>
                                                   </div>
@@ -184,4 +184,5 @@
      <script src="{{ URL::asset('/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/croppie/croppie.min.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/croppie/croppie-custom.js') }}"></script>
+     <script src="{{ URL::asset('/js/product.js') }}"></script>
 @endsection

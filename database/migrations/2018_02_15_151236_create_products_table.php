@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
                $table->text('description');
                $table->enum('availability', array('Yes', 'No'));
                $table->integer('quantity')->default(0);
-               $table->integer('sale_price')->default(0);
-               $table->integer('price')->default(0);
+               $table->float('sale_price')->default(0);
+               $table->float('price')->default(0);
                $table->text('slug');
                $table->text('image');
                $table->integer('category')->unsigned();

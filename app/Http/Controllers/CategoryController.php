@@ -9,8 +9,6 @@ class CategoryController extends Controller
 {
 	public function index(){
 		$categories = Category::latest()->get();
-
-
 		return view('layouts.addCategories.addCategory',compact('categories'));
 	}
 

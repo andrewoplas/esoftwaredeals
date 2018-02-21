@@ -26,12 +26,12 @@ class ProductController extends Controller
     public function store(Request $request)
     { 
           $this->validate(request(), [
-               'product_name' => 'required',
+               'product_name' => 'required|unique:products',
                'slug' => 'required',
                'category' => 'required|integer',
                'description' => 'required',
-               'price' => 'required|integer',
-               'sale_price' => 'required|integer',
+               'price' => 'required|between: 0,9999999999|numeric',
+               'sale_price' => 'required|between: 0,9999999999|numeric',
                'quantity' => 'required|integer',
                'availability' => 'required',
                'image' => 'required'
@@ -52,7 +52,18 @@ class ProductController extends Controller
      public function update(Request $request)
      {
           $product = Product::select('slug')->where('id', $request->id)->get();
-          
+          $this->validate(request(), [
+               'product_name' => 'required|unique:products',
+               'slug' => 'required',
+               'category' => 'required|integer',
+               'description' => 'required',
+               'price' => 'required|between:0,999999999|numeric',
+               'sale_price' => 'required|between:0,999999999|numeric',
+               'quantity' => 'required|integer',
+               'availability' => 'required',
+               'image' => 'required'
+          ]);
+
           if(strlen($request->image)>10)
           {
                unlink(public_path('/images/product_thumbnails/'. $product[0]->slug .'.png'));
@@ -83,4 +94,12 @@ class ProductController extends Controller
 
           return redirect('/tango/products');
      }
+<<<<<<< Updated upstream
+=======
+
+     public function destroy(Product $product){
+          unlink(public_path('/images/product_thumbnails/'. $product->slug .'.png'));
+          $product->forceDelete();
+     }
+>>>>>>> Stashed changes
 }
