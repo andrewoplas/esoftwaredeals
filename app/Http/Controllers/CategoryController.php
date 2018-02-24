@@ -20,7 +20,7 @@ class CategoryController extends Controller
 		$slug = str_slug(request('category_name'),'-');
 		$request->merge(['slug'=>$slug]);
 		Category::create(request(['category_name','parent_category','slug']));
-		return redirect('/categories');
+		return redirect('/tango/categories');
 	}
 
 	public function update(){
@@ -41,12 +41,12 @@ class CategoryController extends Controller
 		$slug = str_slug(request('category_name'),'-');
 		$categ->slug = $slug;
 		$categ->save();
-		return redirect('/categories');
+		return redirect('/tango/categories');
 	}
 
 	public function delete(){
 		$categ = Category::find(request('categId'));
 		$categ->delete();
-		return redirect('/categories');
+		return redirect('/tango/categories');
 	}
 }

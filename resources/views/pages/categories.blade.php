@@ -5,9 +5,9 @@ Categories
 @endsection
 
 @section('cssfiles')
-<link href="../bower_components/footable/css/footable.core.css" rel="stylesheet">
-<link href="../bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-<link href="../bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+<link href="/bower_components/footable/css/footable.core.css" rel="stylesheet">
+<link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+<link href="/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
 @endsection
 
 
@@ -65,7 +65,7 @@ Categories
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                         <h4 class="modal-title" id="updateCategory">Update New Category</h4> </div>
-                                                    <form method = "POST" action="/categories">
+                                                    <form method = "POST" action="/tango/categories">
                                                     {{ csrf_field() }}
                                                     <input type='hidden' name='_method' value='PATCH'>
                                                         <div class="modal-body">
@@ -102,7 +102,7 @@ Categories
                                             <!-- /.modal-dialog -->
                                             </td>
                                             <td>
-                                                <form method="POST" action="/categories" onsubmit="return confirm('Do you really want to delete the category?')">
+                                                <form method="POST" action="/tango/categories" onsubmit="return confirm('Do you really want to delete the category?')">
                                                     {{csrf_field()}}
                                                     {{method_field('DELETE')}}
                                                     <input type="hidden" value={{$category->id}} name="categId">
@@ -130,7 +130,7 @@ Categories
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                         <h4 class="modal-title" id="myModalLabel">Add New Category</h4> </div>
-                                                    <form method="POST" action="/categories">
+                                                    <form method="POST" action="/tango/categories">
                                                     {{ csrf_field() }}
 	                                                    <div class="modal-body">
 	                                                        <from class="form-horizontal form-material">
@@ -180,12 +180,12 @@ Categories
 @endsection
 
 @section('jsfiles')
-<script src="../bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <script src="js/ampleadmin/jquery.slimscroll.js"></script>
 <script src="js/ampleadmin/waves.js"></script>
 <script src="js/ampleadmin/custom.min.js"></script>
-<script src="../bower_components/footable/js/footable.all.min.js"></script>
-<script src="../bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+<script src="/bower_components/footable/js/footable.all.min.js"></script>
+<script src="/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
 <script src="js/ampleadmin/footable-init.js"></script>
-<script src="../bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<script src="/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 @endsection
