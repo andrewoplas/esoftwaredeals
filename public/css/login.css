@@ -40,9 +40,8 @@ p {
 }
 
 .login-form {
-	padding: 0;
-	padding: 20px 0;
-	box-shadow: 0 1px 10px 0 rgba(0,0,0,0.4);
+	padding: 20px 0 !important;
+	box-shadow: 0 1px 10px 0 rgba(0,0,0,0.4) !important;
 	width: 450px;
 	display: table;
 	margin: auto;
@@ -61,58 +60,25 @@ p {
 }
 
 .floating-labels .form-control {
-	border-bottom: 2px solid #95989A;
+	border-color: #95989A !important;
+	border-bottom: 1px solid #95989A !important;
+	box-shadow: none !important;
 	border-radius: 0;
-	font-size: 14px;
+	font-size: 14px !important;
 }
 
 .floating-labels .bar:after,
 .floating-labels .bar:before {
-	background: #B5B5B5;
-}
-
-.floating-labels label {
-	font-size: 14px;
-}
-
-.mdi {
-	font-size: 16px;
-}
-
-.checkbox label::before {
-    border: 2px solid #95989A;
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
+	background: #95989A !important;
 }
 
 .checkbox label {
-	padding-left: 10px;
-	cursor: pointer;
-}
-
-.checkbox label::after {
-	font-size: 18px;
-	width: 25px;
-	height: 25px;
-}
-
-.checkbox input[type=checkbox] {
-	width: 25px;
-    height: 25px;
-    margin-top: 10px;
-}
-
-.checkbox-success input[type=checkbox]:checked+label::before {
-    background-color: #95989A;
-    border-color: #95989A;
+	cursor: pointer !important;
 }
 
 .btn-info {
     width: 100%;
     padding: 15px;
-    background: #039BE5;
-    border: 1px solid #039BE5;
     font-size: 16px;
 }
 
