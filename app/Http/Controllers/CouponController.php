@@ -39,4 +39,8 @@ class CouponController extends Controller
           Coupon::create($request->all());
           return redirect('/tango/coupons');
      }
+
+     public function destroy(Coupon $coupon){
+          $coupon->forceDelete();
+     }
 }

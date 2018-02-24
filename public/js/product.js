@@ -32,7 +32,7 @@ function confirm_delete(id, product_name, element){
                }
           });
           $.ajax({
-               url: "/tango/delete/" + id,
+               url: "/tango/products/delete/" + id,
                type: 'DELETE',
                success: function(data, textStatus, jqXHR) 
                {

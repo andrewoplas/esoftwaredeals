@@ -34,3 +34,41 @@ $("[name='type']").on('change',function(){
     }
 });
 $("[name='type']").change();
+
+function confirm_delete(id, code, element){
+     code = "'" + code + "'";
+     swal({   
+          title: "Are you sure?",   
+          text: "You will not be able to recover " + code,
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",   
+          confirmButtonText: "Yes, delete it!",   
+          closeOnConfirm: false
+     }, function(){
+          $.ajaxSetup({
+               headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               }
+          });
+          $.ajax({
+               url: "/tango/products/delete/" + id,
+               type: 'DELETE',
+               success: function(data, textStatus, jqXHR) 
+               {
+                    swal({   
+                         title: "Deleted!",   
+                         text:  code + " has been successfully deleted.",
+                         timer: 2000,
+                         type: "success",
+                         showConfirmButton: true
+                    });
+                    $(element).parents('tr').hide(1000);
+               },
+               error: function(jqXHR, status, error) 
+               {
+                    console.log(status + ": " + error);
+               }
+          });
+     });
+}     

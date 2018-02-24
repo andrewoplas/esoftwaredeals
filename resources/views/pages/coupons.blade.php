@@ -8,6 +8,7 @@
      <link href="{{ URL::asset('/bower_components/footable/css/footable.core.css') }}" rel="stylesheet">
      <link href="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet" />
      <link href="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
+     <link href="{{ URL::asset('/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet">
 @endsection
 
 @section ('content')
@@ -31,6 +32,8 @@
                               <div class="panel-wrapper collapse in">
                                    <div class="panel-body">
                                         <div class="table-responsive">
+                                             <!-- CSFR token for ajax call -->
+                                             <input type="hidden" name="_token" val="{{ csrf_token() }}"/>
                                              <table class="table product-overview">
                                                   <thead>
                                                        <tr>
@@ -58,7 +61,7 @@
                                                                  <a href="/tango/coupons/edit/{{ $coupon->id }}" class="btn btn-info btn-outline btn-circle">
                                                                       <i class="fa fa-pencil"></i>
                                                                  </a>
-                                                                 <a href="javascript:void(0)" class="btn btn-danger btn-outline btn-circle">
+                                                                 <a href="javascript:void(0)" class="btn btn-danger btn-outline btn-circle" onclick="confirm_delete({{ $coupon->id }}, '{{ $coupon->code }}', this)">
                                                                       <i class="fa fa-trash"></i>
                                                                  </a>
                                                            </td>
@@ -96,4 +99,6 @@
      <script src="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.js') }}"></script>
      <script src="{{ URL::asset('js/ampleadmin/footable-init.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+     <script src="{{ URL::asset('/bower_components/sweetalert/sweetalert.min.js') }}"></script>
+     <script src="{{ URL::asset('/js/coupon.js') }}"></script>
 @endsection
