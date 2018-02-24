@@ -9,6 +9,10 @@ Route::get('/tango/products/edit/{product}', 'ProductController@show');
 Route::get('/tango/products/add', 'ProductController@show');
 Route::post('/tango/products/edit/{product}', 'ProductController@update');
 Route::post('/tango/products/add', 'ProductController@store');
-
 Route::get('/tango/categories', 'CategoryController@index');
 Route::post('/tango/categories', 'CategoryController@store');
+
+Route::get('/tango/coupons', 'CouponController@index');
+Route::get('/tango/coupons/add', 'CouponController@show');
+Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');
+Route::post('/tango/coupons/add', 'CouponController@store');
