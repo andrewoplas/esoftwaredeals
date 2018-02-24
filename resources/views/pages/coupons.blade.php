@@ -15,16 +15,15 @@
      @include ('layouts.sidebar')
 
      <div id="page-wrapper">
-          <div class="container-fluid">
+           <div class="container-fluid">
                <div class="row bg-title">
-                    <div class="col-lg-12">
-                         <h4 class="page-title" style="display: inline-block;">Coupons</h4> 
-                         <a href="/tango/coupons/add" class="btn btn-success pull-right">Add Coupon</a>
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                         <h4 class="page-title">Coupons</h4> 
                     </div>
                </div>
                
                <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-9 col-lg-9 col-sm-7">
                          <div class="panel panel-info">
                               <div class="panel-heading"> 
                                    List of Coupons ({{ count($coupons) }} items)
@@ -73,6 +72,15 @@
                               </div>
                          </div>
                     </div>
+
+                    <div class="col-md-3 col-lg-3 col-sm-5">
+                         <div class="white-box">
+                              <h3 class="box-title">Add Coupon</h3>
+                              <hr>
+                              <a href="/tango/coupons/add" class="btn btn-info btn-block">Add</a>
+                         </div>
+                    </div>
+
                </div>
           </div>
      </div> 
