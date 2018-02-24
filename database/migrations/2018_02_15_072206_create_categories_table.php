@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->bigInteger('parent_category')->nullable();
             $table->text('slug');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
