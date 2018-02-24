@@ -11,7 +11,7 @@ $('.input-daterange-timepicker').daterangepicker({
     cancelClass: 'btn-inverse'
 });
 
-$('.input-daterange-timepicker').on('apply.daterangepicker', function(ev, picker) {
+$('.input-daterange-timepicker').on('apply.daterangepicker hide.daterangepicker', function(ev, picker) {
     $("[name='start_datetime']").val(picker.startDate.format('YYYY-MM-DD H:mm:ss'));
     $("[name='end_datetime']").val(picker.endDate.format('YYYY-MM-DD H:mm:ss'));
 });
