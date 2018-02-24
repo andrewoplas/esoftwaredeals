@@ -8,14 +8,9 @@ use App\Category;
 class CategoryController extends Controller
 {
 	public function index(){
-<<<<<<< HEAD
-		$categories = Category::latest()->get();
-		return view('layouts.addCategories.addCategory',compact('categories'));
-=======
 		$categories = Category::get();
 
 		return view('pages.categories',compact('categories'));
->>>>>>> 78a5b841dc7464f9c08d3483a0b5f5cae3bdfc5c
 	}
 
     public function store(Request $request){
