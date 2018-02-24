@@ -5,6 +5,7 @@
 @endsection
 
 @section ('cssfiles')
+     <meta name="csrf-token" content="{{ csrf_token() }}" />
      <link href="{{ URL::asset('/bower_components/footable/css/footable.core.css') }}" rel="stylesheet">
      <link href="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet" />
      <link href="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
@@ -94,11 +95,8 @@
 @section ('jsfiles')
      <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
      <script src="{{ URL::asset('js/ampleadmin/jquery.slimscroll.js') }}"></script>
-     <script src="{{ URL::asset('js/ampleadmin/waves.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/footable/js/footable.all.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.js') }}"></script>
-     <script src="{{ URL::asset('js/ampleadmin/footable-init.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+     <script src="{{ URL::asset('/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/sweetalert/sweetalert.min.js') }}"></script>
      <script src="{{ URL::asset('/js/coupon.js') }}"></script>
 @endsection

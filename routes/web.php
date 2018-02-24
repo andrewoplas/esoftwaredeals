@@ -16,13 +16,13 @@ Route::post('/tango/categories', 'CategoryController@store');
 Route::patch('tango/categories', 'CategoryController@update');
 Route::delete('tango/categories', 'CategoryController@delete');
 
-Route::get('/tango/licenses', 'LicenseController@index');
-Route::get('/tango/licenses/add', 'LicenseController@create');
-Route::post('/tango/licenses/add', 'LicenseController@store');
-Route::post('/tango/licenses/delete', 'LicenseController@destroy');
-
 Route::get('/tango/coupons', 'CouponController@index');
 Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');
 Route::get('/tango/coupons/add', 'CouponController@show');
 Route::delete('/tango/coupons/delete/{coupon}', 'CouponController@destroy');
 Route::post('/tango/coupons/add', 'CouponController@store');
+
+Route::get('/tango/licenses', 'LicenseController@index');
+Route::get('/tango/licenses/add', 'LicenseController@create');
+Route::post('/tango/licenses/add', 'LicenseController@store');
+Route::post('/tango/licenses/delete', 'LicenseController@destroy');

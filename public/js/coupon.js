@@ -36,6 +36,7 @@ $("[name='type']").on('change',function(){
 $("[name='type']").change();
 
 function confirm_delete(id, code, element){
+    alert(id);
      code = "'" + code + "'";
      swal({   
           title: "Are you sure?",   
@@ -52,7 +53,7 @@ function confirm_delete(id, code, element){
                }
           });
           $.ajax({
-               url: "/tango/products/delete/" + id,
+               url: "/tango/coupons/delete/" + id,
                type: 'DELETE',
                success: function(data, textStatus, jqXHR) 
                {
