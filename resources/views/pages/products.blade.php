@@ -60,8 +60,8 @@
                                                                  <p>{{ str_limit($product->description, 125) }}</p>
                                                             </td>
                                                             <td align="center" width="10%">{{ $product->quantity }}</td>
-                                                            <td align="center" width="8%">{{ $product->price }}</td>
-                                                            <td align="center" width="10%">{{ $product->sale_price }}</td>
+                                                            <td align="center" width="8%">{{ number_format($product->price, 2, '.', ',') }}</td>
+                                                            <td align="center" width="10%">{{ number_format($product->sale_price, 2, '.', ',') }}</td>
                                                             <td align="center" width="5%">{{ $product->category }}</td>
                                                             <td align="center" width="10%">
                                                                  <a href="/tango/products/edit/{{ $product->id }}" class="btn btn-info btn-outline btn-circle">
