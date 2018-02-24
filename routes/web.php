@@ -18,3 +18,8 @@ Route::get('/tango/licenses', 'LicenseController@index');
 Route::get('/tango/licenses/add', 'LicenseController@create');
 Route::post('/tango/licenses/add', 'LicenseController@store');
 Route::post('/tango/licenses/delete', 'LicenseController@destroy');
+
+Route::get('/tango/coupons', 'CouponController@index');
+Route::get('/tango/coupons/add', 'CouponController@show');
+Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');
+Route::post('/tango/coupons/add', 'CouponController@store');
