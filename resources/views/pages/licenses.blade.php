@@ -5,6 +5,7 @@ Licenses
 @endsection
 
 @section('cssfiles')
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <link href="/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 <link href="/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet" type="text/css">
 <link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
@@ -19,12 +20,20 @@ Licenses
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                 <h4 class="page-title">Licenses</h4>
             </div>
+            <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="/tango/dashboard">Dashboard</a></li>
+                    <li class="active">Licenses</li>
+                </ol>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-7">
                 <div class="white-box">
                     <h3 class="box-title m-b-0">List of Product Keys</h3>
                     <div class="table-responsive">
+                        <!-- CSFR token for ajax call -->
+                        <input type="hidden" name="_token" val="{{ csrf_token() }}"/>
                         <table id="licenseTable" class="table">
                             <thead>
                                 <tr>
@@ -55,14 +64,9 @@ Licenses
                                             {{ \Carbon\Carbon::parse($license->created_at)->format('m/d/Y') }}
                                         </td>
                                         <td>
-
-                                            <form method="POST" action="/tango/licenses/delete" class="delete_license">
-                                                {{ csrf_field() }}
-                                                <input type="hidden" name="id" value="{{ @$license->id }}">
-                                                <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn delete-warning" data-toggle="tooltip" data-original-title="Delete">
-                                                    <i class="ti-close" aria-hidden="true"></i>
-                                                </button>
-                                            </form>
+                                            <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete" onclick="confirm_delete({{ $license->id }}, this)">
+                                                <i class="ti-close" aria-hidden="true"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -73,14 +77,14 @@ Licenses
             </div>
             <div class="col-md-3 col-lg-3 col-sm-5">
                 <div class="white-box">
-                    <h3 class="box-title">All Licenses <span class="pull-right">{{ $licenses->count() }}</span></h3>
+                    <h3 class="box-title">All Licenses <span class="pull-right" id="allLicensesCount">{{ $licenses->count() }}</span></h3>
                     <hr>
-                        <p>Assigned <span class="pull-right">{{ $licenses_is_assigned->count() }}</span></p>
-                        <p>Unassigned <span class="pull-right">{{ $licenses_not_assigned->count() }}</span></p>
+                        <p>Assigned <span class="pull-right" id="assignedLicensesCount">{{ $licenses_is_assigned->count() }}</span></p>
+                        <p>Unassigned <span class="pull-right" id="unassignedLicensesCount">{{ $licenses_not_assigned->count() }}</span></p>
                     <br>
-                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#detailedViewModal" style="width: 100%;">Detailed View</button>
+                    <button type="button" class="btn btn-info waves-effect waves-light" id="detailedViewButton" data-toggle="modal" data-target="#detailedViewModal" style="width: 100%;" onclick="getDetailedView()">Detailed View</button>
                 </div>
-                <div class="modal fade" id="detailedViewModal" tabindex="-1" role="dialog" aria-labelledby="detailedModalLabel">
+                <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="detailedModalLabel" id="detailedViewModal">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -128,42 +132,12 @@ Licenses
     </div>
 </div>
 
-@include('layouts.footer');
+@include('layouts.footer')
 @endsection
 @section('jsfiles')
 <script src="/bower_components/datatables/jquery.dataTables.min.js"></script>
 <script src="/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
 <script src="/js/ampleadmin/waves.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#licenseTable').DataTable( {
-            "bLengthChange": false,
-            "info": false
-        });
-
-        $('#detailedViewTable').DataTable( {
-            "bLengthChange": false,
-            "info": false,
-            searching: false,
-            paging: false
-        });
-
-        $('.delete-warning').click(function(e){
-            e.preventDefault();
-            var button = $(this);
-            swal({   
-                title: "Are you sure?",   
-                text: "You will not be able to recover this license",   
-                type: "warning",   
-                showCancelButton: true,   
-                confirmButtonColor: "#DD6B55",   
-                confirmButtonText: "Yes, delete it!",   
-                closeOnConfirm: true
-            }, function(){
-                $(button).parent().submit();
-            });
-        });
-    });
-</script>
+<script src="/js/license.js"></script>
 @endsection

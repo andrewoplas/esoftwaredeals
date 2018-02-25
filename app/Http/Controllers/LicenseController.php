@@ -10,7 +10,7 @@ class LicenseController extends Controller
 {
 	public function __construct()
 	{
-	    $this->middleware('auth');
+	    //$this->middleware('auth');
 	}
 
 	public function index()
@@ -72,11 +72,47 @@ class LicenseController extends Controller
       	return redirect('/tango/licenses');
 	}
 
-	public function destroy(Request $request)
+	public function destroy(License $license)
 	{
-		$license = License::find($request['id']);
-    	$license->delete();
+		$isAssigned = $license->is_assigned;
+		$license->forceDelete();
 
-    	return redirect('/tango/licenses/'); 
+		print($isAssigned);
+	}
+
+	public function getDetailedView() 
+	{
+		$licenses = DB::table('licenses')
+							->join('products', 'licenses.product_id', '=', 'products.id')
+							->select('products.*', 'licenses.id as id', 'licenses.key as key', 'licenses.is_assigned as is_assigned', 'licenses.created_at as created_at')
+							->get();
+
+		$licenses_container = array();
+		foreach ($licenses as $license) {
+			if (!isset($licenses_container[$license->product_name])) {
+				$licenses_container[$license->product_name] = array(
+					'assigned' => 0,
+					'unassigned' => 0
+				);
+			}
+
+			if ($license->is_assigned == 0) {
+				$licenses_container[$license->product_name]['unassigned']++;
+			} else {
+				$licenses_container[$license->product_name]['assigned']++;
+			}
+		}
+
+		$output_container = array();
+		foreach ($licenses_container as $product => $licenses) 
+		{
+			$temp = array($product, 
+						  $licenses['assigned'] + $licenses['unassigned'],
+						  $licenses['assigned'],
+						  $licenses['unassigned']);
+			array_push($output_container, $temp);
+		}
+
+		print(json_encode($output_container));
 	}
 }

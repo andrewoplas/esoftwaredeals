@@ -138,6 +138,34 @@
                     </ul>
                </li>
 
+               <li> 
+                    <a href="javascript:void(0);" class="waves-effect">
+                         <i class="mdi mdi-file-document fa-fw" data-icon="v"></i> 
+                         <span class="hide-menu"> 
+                              License 
+                              <span class="fa arrow"></span> 
+                         </span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                         <li> 
+                              <a href="/tango/licenses">
+                                   <i class="fa-fw">L</i>
+                                   <span class="hide-menu">
+                                        Licenses
+                                   </span>
+                              </a> 
+                         </li>
+                         <li> 
+                              <a href="/tango/licenses/add">
+                                   <i class="fa-fw">A</i>
+                                   <span class="hide-menu">
+                                        Add
+                                   </span>
+                              </a> 
+                         </li>
+                    </ul>
+               </li>
+
           </ul>
     </div>
 </div>
