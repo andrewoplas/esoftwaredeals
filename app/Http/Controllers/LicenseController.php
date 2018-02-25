@@ -18,6 +18,7 @@ class LicenseController extends Controller
 		$licenses = DB::table('licenses')
 							->join('products', 'licenses.product_id', '=', 'products.id')
 							->select('products.*', 'licenses.id as id', 'licenses.key as key', 'licenses.is_assigned as is_assigned', 'licenses.created_at as created_at')
+							->orderBy('licenses.created_at', 'desc')
 							->get();
 		$licenses_is_assigned = DB::table('licenses')->where('is_assigned', '1')->get();			
 		$licenses_not_assigned = DB::table('licenses')->where('is_assigned', '0')->get();			
@@ -60,14 +61,48 @@ class LicenseController extends Controller
 	public function store(Request $request)
 	{
 		$this->validate(request(), [
-           	'key' => 'required',
+           	'key' => 'required_without_all:bulk_key',
+           	'bulk_key' => 'required_without_all:key',
            	'product_id' => 'required|integer'
       	]);
 
-      	$license = new License();
-      	$license->key = $request['key'];
-      	$license->product_id = $request['product_id'];
-      	$license->save();
+		if ($request->has('key') && $request->key != '') {
+			$licenseRecord = DB::table('licenses')
+    								->where('key', $request->key)
+    								->where('product_id', $request['product_id'])
+    								->first();
+			if (!$licenseRecord) {
+				$license = new License();
+		      	$license->key = $request['key'];
+		      	$license->product_id = $request['product_id'];
+		      	$license->save();
+			}    								
+	      	
+	    } else {
+			$file = $request->file('bulk_key');
+			$destinationPath = storage_path() . '/keys';
+			$file->move($destinationPath, $file->getClientOriginalName());
+
+			$path = storage_path() . '\keys\\' . $file->getClientOriginalName();
+
+			if (($handle = fopen($path, 'r')) !== false) {
+	        	while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+	        		$licenseRecord = DB::table('licenses')
+	        								->where('key', $data[0])
+	        								->where('product_id', $request['product_id'])
+	        								->first();
+	        		if (!$licenseRecord) {
+		                $license = new License();
+		                $license->key = $data[0];
+		                $license->product_id = $request['product_id'];
+		                $license->save();
+		            }
+	        	}
+	        	
+	        	fclose($handle);
+	        	\File::delete($path);
+	    	}
+	    }
 
       	return redirect('/tango/licenses');
 	}
@@ -76,7 +111,6 @@ class LicenseController extends Controller
 	{
 		$isAssigned = $license->is_assigned;
 		$license->forceDelete();
-
 		print($isAssigned);
 	}
 

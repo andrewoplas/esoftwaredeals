@@ -64,9 +64,9 @@ Licenses
                                             {{ \Carbon\Carbon::parse($license->created_at)->format('m/d/Y') }}
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete" onclick="confirm_delete({{ $license->id }}, this)">
-                                                <i class="ti-close" aria-hidden="true"></i>
-                                            </button>
+                                            <a href="javascript:void(0)" class="btn btn-danger btn-outline btn-circle" onclick="confirm_delete({{ $license->id }}, this)">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
