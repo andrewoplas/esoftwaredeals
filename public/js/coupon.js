@@ -16,12 +16,6 @@ $('.input-daterange-timepicker').on('apply.daterangepicker hide.daterangepicker'
     $("[name='end_datetime']").val(picker.endDate.format('YYYY-MM-DD H:mm:ss'));
 });
 
-$('.input-daterange-timepicker').val("");
-
-$('.input-daterange-timepicker').on('load.daterangepicker', function(ev, picker) {
-    alert("asdf");
-});
-
 $("[name='type']").on('change',function(){
     var type = $(this).val();
 

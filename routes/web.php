@@ -20,6 +20,7 @@ Route::get('/tango/coupons', 'CouponController@index');
 Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');
 Route::get('/tango/coupons/add', 'CouponController@show');
 Route::delete('/tango/coupons/delete/{coupon}', 'CouponController@destroy');
+Route::post('/tango/coupons/edit/{coupon}', 'CouponController@update');
 Route::post('/tango/coupons/add', 'CouponController@store');
 
 Route::get('/tango/licenses', 'LicenseController@index');

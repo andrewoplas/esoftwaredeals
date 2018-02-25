@@ -100,10 +100,9 @@
                                                   <div class="row">
                                                        <div class="col-md-12">
                                                             <label class="control-label">Date Range</label>
-                                                            <input type="hidden" class="form-control" name="start_datetime" value="{{ @$coupon->start_datetime }}" required> 
-                                                            <input type="hidden" class="form-control" name="end_datetime" value="{{ @$coupon->end_datetime }}" required> 
-                                                            <input type="text" class="form-control input-daterange-timepicker" name="daterange"/>
-
+                                                            <input type="hidden" class="form-control" name="start_datetime" value="{{ @$start_datetime }}" required> 
+                                                            <input type="hidden" class="form-control" name="end_datetime" value="{{ @$end_datetime }}" required> 
+                                                            <input type="text" class="form-control input-daterange-timepicker" name="daterange" value=" {{ @$date }}" />
                                                        </div>
                                                   </div>
 
