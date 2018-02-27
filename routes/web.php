@@ -25,3 +25,7 @@ Route::get('/tango/coupons', 'CouponController@index');
 Route::get('/tango/coupons/add', 'CouponController@show');
 Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');
 Route::post('/tango/coupons/add', 'CouponController@store');
+
+Route::get('/tango/users', 'UserController@index');
+Route::get('/tango/users/{user}', 'UserController@show');
+Route::delete('/tango/users', 'UserController@delete');

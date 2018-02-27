@@ -137,7 +137,14 @@
                          </li>
                     </ul>
                </li>
-
+                <li> 
+                    <a href="/tango/users" class="waves-effect">
+                         <i class="mdi mdi-account fa-fw" data-icon="v"></i> 
+                         <span class="hide-menu">                        
+                              Users 
+                         </span>
+                    </a>
+               </li>
           </ul>
     </div>
 </div>
