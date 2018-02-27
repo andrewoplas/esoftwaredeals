@@ -20,7 +20,7 @@ class CategoryController extends Controller
 		$slug = str_slug(request('category_name'),'-');
 		$request->merge(['slug'=>$slug]);
 		Category::create(request(['category_name','parent_category','slug']));
-		return redirect('/tango/categories');
+		return redirect('/categories');
 	}
 
 	public function update(){
