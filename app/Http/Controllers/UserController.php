@@ -23,10 +23,14 @@ class UserController extends Controller
 		return view('pages.users',compact('users','premium_users','normal_users'));
 	}
 
-	public function delete(){
-		$categ = RegisteredUser::find(request('userId'));
-		$categ->delete();
-		return redirect('/tango/users');
+	public function delete(RegisteredUser $user){
+
+		$user->delete();
+		if($user->user_type == 'Premium'){
+			print(0);
+		} else {
+			print(1);
+		}
 	}
 
 	public function show(RegisteredUser $user){
