@@ -58,7 +58,8 @@ class ProductController extends Controller
      public function update(Request $request)
      {
           $product = Product::select('slug')->where('id', $request->id)->get();
-          if($request->edited == 1){
+          if($request->edited == 1)
+          {
                $this->validate(request(), [ 'product_name' => 'required|unique:products' ]);
           }
           $this->validate(request(), [

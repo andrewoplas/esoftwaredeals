@@ -49,20 +49,20 @@
                                                        </div>
                                                        <div class="col-md-6">
                                                             <div class="form-group">
-                                                                 <label class="control-label">Is Enabled?</label>
+                                                                 <label class="control-label">Status</label>
                                                                  <div class="radio-list">
                                                                       <label class="radio-inline p-0">
                                                                            <div class="radio radio-info">
-                                                                                <input type="radio" name="is_enabled" id="yes" value="Yes" required checked
-                                                                                {{ @$coupon->is_enabled == 'Yes'? 'checked' : '' }} >
-                                                                                <label for="yes">Yes</label>
+                                                                                <input type="radio" name="status" id="yes" value="Enabled" required checked
+                                                                                {{ @$coupon->status == 'Enabled'? 'checked' : '' }} >
+                                                                                <label for="yes">Enable</label>
                                                                            </div>
                                                                       </label>
                                                                       <label class="radio-inline">
                                                                            <div class="radio radio-info">
-                                                                                <input type="radio" name="is_enabled" id="no" value="No" required
-                                                                                {{ @$coupon->is_enabled == 'No'? 'checked' : '' }} >
-                                                                                <label for="no">No</label>
+                                                                                <input type="radio" name="status" id="no" value="Disabled" required
+                                                                                {{ @$coupon->status == 'Disabled'? 'checked' : '' }} >
+                                                                                <label for="no">Disable</label>
                                                                            </div>
                                                                       </label>
                                                                  </div>
