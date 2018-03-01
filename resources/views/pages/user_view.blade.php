@@ -28,31 +28,33 @@ User Accounts - User Detail
             	<div class="col-md-4">
             		<div class="panel panel-default">
                     	<div class="panel-wrapper collapse in">
-                    		<img src="{{ $user->user_image }}" alt="{{ $user->user_name }}'s image" width="100%" style="margin-right:5px">
+                    		<img src="{{ $user->image }}" alt="{{ $user->full_name }}'s image" width="100%" style="margin-right:5px">
 	                    	<div class="panel-body" style="padding-right: 0px;padding-left: 0px;padding-top: 0px;">
 								<div class="col-md-12 no_side_padding border-bottom">
 									<div class="col-md-6 no_side_padding">
 										<h3 class="user-info">Name</h3>
-										<h3 class="user-info-value">{{$user->user_name}}</h3>
+										<h3 class="user-info-value">{{$user->full_name}}</h3>
 									</div>
 									<div class="col-md-6 no_side_padding border-left b">
 										<h3 class="user-info">User Type</h3>
-										<h3 class="user-info-value">{{$user->user_type}}</h3>
+										
+										<h3 class="user-info-value">{{$user->admin?'Admin':'Normal'}}</h3>
+										
 									</div>
 								</div>
 								<div class="col-md-12 no_side_padding border-bottom">
 									<div class="col-md-6 no_side_padding">
 										<h3 class="user-info">Email</h3>
-										<h3 class="user-info-value">{{$user->user_email}}</h3>
+										<h3 class="user-info-value">{{$user->email}}</h3>
 									</div>
 									<div class="col-md-6 no_side_padding border-left">
 										<h3 class="user-info">Phone</h3>
-										<h3 class="user-info-value">{{$user->user_phone_number}}</h3>
+										<h3 class="user-info-value">{{$user->telephone_number}}</h3>
 									</div>
 								</div>
 								<div class="col-md-12 no_side_padding">
 									<h3 class="address">Address</h3>
-									<h3 class="address-value">25 C Gorordo Avenue, Cebu City, Philippines</h3>
+									<h3 class="address-value">{{ $user->address }}</h3>
 								</div>
 	                        </div>
 	                    </div>

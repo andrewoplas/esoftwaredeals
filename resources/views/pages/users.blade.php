@@ -50,21 +50,21 @@ Users
                                                 {{ $user->id }}
                                             </td>
                                             <td>
-                                                <img class="img-circle" src="{{ $user->user_image }}" alt="{{ $user->user_name }}'s image" width="50" style="margin-right:5px">
+                                                <img class="img-circle" src="{{ $user->image }}" alt="{{ $user->full_name }}'s image" width="50" style="margin-right:5px">
                                                                 <a href="/tango/users/{{$user->id}}">
-                                                {{ $user->user_name }}
+                                                {{ $user->full_name }}
                                             </td>
                                             <td>
-                                                {{ $user->user_email }}
+                                                {{ $user->email }}
                                             </td>
                                             <td>
-                                                {{ $user->user_phone_number }}
+                                                {{ $user->telephone_number }}
                                             </td>
                                             <td>
                                                 {{ \Carbon\Carbon::parse($user->created_at)->format('m/d/Y') }}
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0)" class="btn btn-danger btn-outline btn-circle" onclick="confirm_delete({{ $user->id }}, '{{ $user->user_name }}', this)">
+                                                <a href="javascript:void(0)" class="btn btn-danger btn-outline btn-circle" onclick="confirm_delete({{ $user->id }}, '{{ $user->full_name }}', this)">
                                                                       <i class="fa fa-trash"></i>
                                                 </a>
                                             </td>
@@ -80,7 +80,7 @@ Users
                 <div class="white-box">
                     <h3 class="box-title">All Users <span class="pull-right" id="allUsersCount">{{ $users->count() }}</span></h3>
                     <hr>
-                        <p>Premium <span class="pull-right" id="premiumUsersCount">{{ $premium_users }}</span></p>
+                        <p>Admin <span class="pull-right" id="premiumUsersCount">{{ $premium_users }}</span></p>
                         <p>Normal <span class="pull-right" id="normalUsersCount">{{ $normal_users }}</span></p>
                 </div>
             </div>

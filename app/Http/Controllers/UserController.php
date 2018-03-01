@@ -4,28 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\RegisteredUser;
+use App\User;
 
 
 class UserController extends Controller
 {
     public function index(){
-		$users = RegisteredUser::get();
-		$premium_users = DB::table('registered_users')
-                ->where('user_type', 'premium')
-                ->where('deleted_at','=',NULL)
+		$users = User::get();
+		$premium_users = DB::table('users')
+                ->where('admin', '1')
                 ->count();
-		$normal_users = DB::table('registered_users')
-                ->where('user_type', 'normal')
-                ->where('deleted_at','=',NULL)
+		$normal_users = DB::table('users')
+                ->where('admin', '0')
                 ->count();
 
 		return view('pages.users',compact('users','premium_users','normal_users'));
 	}
 
-	public function delete(RegisteredUser $user){
+	public function delete(User $user){
 
-		$user->delete();
+		$user->forceDelete();
 		if($user->user_type == 'Premium'){
 			print(0);
 		} else {
@@ -33,8 +31,8 @@ class UserController extends Controller
 		}
 	}
 
-	public function show(RegisteredUser $user){
-		$users = RegisteredUser::get();
+	public function show(User $user){
+		$users = User::get();
 		return view('pages.user_view',compact('user'));
 	}
 }

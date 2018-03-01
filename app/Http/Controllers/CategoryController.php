@@ -46,7 +46,7 @@ class CategoryController extends Controller
 
 	public function delete(){
 		$categ = Category::find(request('categId'));
-		$categ->delete();
+		$categ->forceDelete();
 		return redirect('/categories');
 	}
 }
