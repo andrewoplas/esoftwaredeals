@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('tango.layouts.master')
 
 @section ('title')
      Product - {{ $form_type }}
@@ -12,8 +12,8 @@
 @endsection
 
 @section ('content')
-     @include ('layouts.header')
-     @include ('layouts.sidebar')
+     @include ('tango.layouts.header')
+     @include ('tango.layouts.sidebar')
 
      <div id="page-wrapper">
          <div class="container-fluid">
@@ -33,7 +33,7 @@
                                         <form method="POST">
                                              {{ csrf_field() }}
                                              <div class="form-body">
-                                                  @include ('layouts.errors')
+                                                  @include ('tango.layouts.errors')
 
                                                   <h3 class="box-title">About Product</h3>
                                                   <hr>
@@ -175,15 +175,16 @@
           </div>
      </div>
 
-     @include ('layouts.footer');
+     @include ('tango.layouts.footer');
 @endsection
 
 @section ('jsfiles')
-     <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
      <script src="{{ URL::asset('/js/ampleadmin/jquery.slimscroll.js') }}"></script>
+     <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
+     <script src="{{ URL::asset('/bower_components/footable/js/footable.all.min.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/croppie/croppie.min.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/croppie/croppie-custom.js') }}"></script>
-     <script src="{{ URL::asset('/js/product.js') }}"></script>
+     <script src="{{ URL::asset('/js/tango/product.js') }}"></script>
 @endsection

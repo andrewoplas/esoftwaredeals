@@ -1,15 +1,11 @@
 <?php
 
-Route::get('/tango', [ 'as' => 'login', 'uses' => 'SessionController@create' ]);
-Route::post('/tango', 'SessionController@store');
-Route::get('/tango/logout', 'SessionController@destroy');
-
-Route::get('/tango/products', 'ProductController@index');
-Route::get('/tango/products/edit/{product}', 'ProductController@show');
-Route::get('/tango/products/add', 'ProductController@show');
-Route::delete('/tango/products/delete/{product}', 'ProductController@destroy');
-Route::post('/tango/products/edit/{product}', 'ProductController@update');
-Route::post('/tango/products/add', 'ProductController@store');
+Route::get('/tango/products', 'tango\ProductController@index');
+Route::get('/tango/products/edit/{product}', 'tango\ProductController@show');
+Route::get('/tango/products/add', 'tango\ProductController@show');
+Route::delete('/tango/products/delete/{product}', 'tango\ProductController@destroy');
+Route::post('/tango/products/edit/{product}', 'tango\ProductController@update');
+Route::post('/tango/products/add', 'tango\ProductController@store');
 
 Route::get('/tango/categories', 'CategoryController@index');
 Route::get('/tango/categories/edit/{category}', 'CategoryController@show');
@@ -20,23 +16,18 @@ Route::patch('tango/categories', 'CategoryController@update');
 Route::delete('/tango/categories/delete/{category}', 'CategoryController@destroy');
 //Route::delete('tango/categories', 'CategoryController@delete');
 
-Route::get('/tango/coupons', 'CouponController@index');
-Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');
-Route::get('/tango/coupons/add', 'CouponController@show');
-Route::delete('/tango/coupons/delete/{coupon}', 'CouponController@destroy');
-Route::post('/tango/coupons/edit/{coupon}', 'CouponController@update');
-Route::post('/tango/coupons/add', 'CouponController@store');
+Route::get('/tango/coupons', 'tango\CouponController@index');
+Route::get('/tango/coupons/edit/{coupon}', 'tango\CouponController@show');
+Route::get('/tango/coupons/add', 'tango\CouponController@show');
+Route::delete('/tango/coupons/delete/{coupon}', 'tango\CouponController@destroy');
+Route::post('/tango/coupons/edit/{coupon}', 'tango\CouponController@update');
+Route::post('/tango/coupons/add', 'tango\CouponController@store');
 
 Route::get('/tango/licenses', 'LicenseController@index');
 Route::get('/tango/licenses/detailed', [ 'middleware' => 'ajax', 'uses' => 'LicenseController@getDetailedView' ]);
 Route::get('/tango/licenses/add', 'LicenseController@create');
 Route::post('/tango/licenses/add', 'LicenseController@store');
 Route::delete('/tango/licenses/delete/{license}', 'LicenseController@destroy');
-
-Route::get('/tango/coupons', 'CouponController@index');
-Route::get('/tango/coupons/add', 'CouponController@show');
-Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');
-Route::post('/tango/coupons/add', 'CouponController@store');
 
 // ----------------- Front end ----------------------------
 

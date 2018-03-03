@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('tango.layouts.master')
 
 @section ('title')
      Coupon - {{ $form_type }}
@@ -13,8 +13,8 @@
 @endsection
 
 @section ('content')
-     @include ('layouts.header')
-     @include ('layouts.sidebar')
+     @include ('tango.layouts.header')
+     @include ('tango.layouts.sidebar')
 
      <div id="page-wrapper">
          <div class="container-fluid">
@@ -34,7 +34,7 @@
                                         <form method="POST">
                                              {{ csrf_field() }}
                                              <div class="form-body">
-                                                  @include ('layouts.errors')
+                                                  @include ('tango.layouts.errors')
 
                                                   <h3 class="box-title">About Coupon</h3>
                                                   <hr>
@@ -123,17 +123,19 @@
           </div>
      </div>
 
-     @include ('layouts.footer');
+     @include ('tango.layouts.footer');
 @endsection
 
 @section ('jsfiles')
-     <script src="{{ URL::asset('/bower_components/jquery/dist/jquery.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
-     <script src="{{ URL::asset('/js/ampleadmin/jquery.slimscroll.js') }}"></script>
+     <script src="{{ URL::asset('js/ampleadmin/jquery.slimscroll.js') }}"></script>
+     <script src="{{ URL::asset('js/ampleadmin/waves.js') }}"></script>
+     <script src="{{ URL::asset('js/ampleadmin/footable-init.js') }}"></script>
+     <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>     
+     <script src="{{ URL::asset('/bower_components/footable/js/footable.all.min.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/moment/moment.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/timepicker/bootstrap-timepicker.min.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-     <script src="{{ URL::asset('/js/coupon.js') }}"></script>
+     <script src="{{ URL::asset('/js/tango/coupon.js') }}"></script>
 @endsection
