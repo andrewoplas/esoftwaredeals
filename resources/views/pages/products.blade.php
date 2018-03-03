@@ -86,7 +86,7 @@
                          <div class="white-box">
                               <h3 class="box-title">Add Product</h3>
                               <hr>
-                              <a href="/tango/products/add" class="btn btn-success btn-block">Add</a>
+                              <a href="/tango/products/add" class="btn btn-info btn-block">Add</a>
                          </div>
                     </div>
              </div>
