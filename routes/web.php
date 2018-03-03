@@ -1,4 +1,10 @@
 <?php
+Auth::routes();
+
+Route::get('/tango', 'Auth\AdminLoginController@show');
+Route::post('/tango', 'Auth\AdminLoginController@login');
+Route::get('/tango/dashboard', 'AdminController@index');
+Route::get('/logout', 'Auth\AdminLoginController@logout');
 
 Route::get('/tango/products', 'tango\ProductController@index');
 Route::get('/tango/products/edit/{product}', 'tango\ProductController@show');
