@@ -1,0 +1,58 @@
+h3.user-info{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-weight: 500;
+    font-family: Rubik,sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+h3.user-info-value{
+    margin-top: 0;
+    font-family: Rubik,sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+h3.address{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-weight: 500;
+    font-family: Rubik,sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #78828c;
+}
+
+h3.address-value{
+    margin-top: 0;
+    font-family: Rubik,sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #78828c;
+}
+
+#userTable>tbody>tr>td{
+    vertical-align: middle;
+}
+
+.border-left{
+	border-left:1px solid;
+	border-left-color: rgba(120,130,140,.13);
+}
+
+.border-bottom{
+    border-bottom:1px solid;
+    border-bottom-color: rgba(120,130,140,.13);
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    padding: 0px;
+}
+
+.no_side_padding{
+    padding-right: 0px;
+    padding-left: 0px;
+}

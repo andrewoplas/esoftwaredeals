@@ -37,10 +37,13 @@ Route::get('/tango/coupons', 'CouponController@index');
 Route::get('/tango/coupons/add', 'CouponController@show');
 Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');
 Route::post('/tango/coupons/add', 'CouponController@store');
-Route::post('/tango/licenses/delete', 'LicenseController@destroy');
 
 // ----------------- Front end ----------------------------
 
 Route::get('/sautocomplete/{id}', 'SearchMatchController@autocomplete');
 Route::get('/search', 'SearchMatchController@show');
 Route::get('/', 'FrontEnd\HomepageController@index' );
+
+Route::get('/tango/users', 'UserController@index');
+Route::get('/tango/users/{user}', 'UserController@show');
+Route::delete('/tango/users/delete/{user}', 'UserController@delete');
