@@ -30,7 +30,6 @@ $("[name='type']").on('change',function(){
 $("[name='type']").change();
 
 function confirm_delete(id, code, element){
-    alert(id);
      code = "'" + code + "'";
      swal({   
           title: "Are you sure?",   
