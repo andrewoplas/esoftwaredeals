@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('tango.layouts.master')
 
 @section ('title')
      Categories
@@ -9,19 +9,18 @@
      <link href="/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
      <link href="/bower_components/footable/css/footable.core.css" rel="stylesheet">
      <link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-     <link href="/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
      <link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet">
 @endsection
 
 @section ('content')
-     @include ('layouts.header')
-     @include ('layouts.sidebar')
+     @include ('tango.layouts.header')
+     @include ('tango.layouts.sidebar')
 
      <div id="page-wrapper">
           <div class="container-fluid">
                <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                         <h4 class="page-title">Products</h4> 
+                         <h4 class="page-title">Categories</h4> 
                     </div>
                </div>
                
@@ -98,18 +97,13 @@
           </div>
      </div> 
 
-     @include ('layouts.footer');
+     @include ('tango.layouts.footer');
 @endsection
 
 @section ('jsfiles')
-     <script src="/bower_components/datatables/jquery.dataTables.min.js"></script>
-     <script src="/js/ampleadmin/jquery.slimscroll.js"></script>
-     <script src="/js/ampleadmin/waves.js"></script>
-     <script src="/js/ampleadmin/footable-init.js"></script>
-     <script src="/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>     
+     <script src="/bower_components/datatables/jquery.dataTables.min.js"></script>    
      <script src="/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-     <script src="/bower_components/footable/js/footable.all.min.js"></script>
      <script src="/bower_components/bootstrap-select/bootstrap-select.min.js"></script>
      <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
-     <script src="/js/category.js"></script>
+     <script src="/js/tango/category.js"></script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('tango.layouts.master')
 
 @section('title')
 User Accounts - User Detail
@@ -8,14 +8,13 @@ User Accounts - User Detail
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <link href="/bower_components/footable/css/footable.core.css" rel="stylesheet">
 <link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-<link href="/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
 <link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet">
-<link href="/css/user.css" rel="stylesheet">
+<link href="/css/tango/user.css" rel="stylesheet">
 @endsection
 
 @section('content')
-    @include('layouts.header')
-    @include('layouts.sidebar')
+    @include('tango.layouts.header')
+    @include('tango.layouts.sidebar')
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row bg-title">
@@ -225,18 +224,12 @@ User Accounts - User Detail
             </div>
         </div>
     </div>
-@include('layouts.footer')
+@include('tango.layouts.footer')
 @endsection
 
 @section('jsfiles')
-<script src="/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-<script src="/js/ampleadmin/jquery.slimscroll.js"></script>
-<script src="/js/ampleadmin/waves.js"></script>
-<script src="/js/ampleadmin/custom.min.js"></script>
-<script src="/bower_components/footable/js/footable.all.min.js"></script>
 <script src="/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-<script src="/js/ampleadmin/footable-init.js"></script>
 <script src="/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
-<script src="/js/user.js"></script>
+<script src="/js/tango/user.js"></script>
 @endsection

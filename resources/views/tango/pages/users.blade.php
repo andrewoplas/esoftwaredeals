@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('tango.layouts.master')
 
 @section('title')
 Users
@@ -7,14 +7,13 @@ Users
 @section('cssfiles')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <link href="/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-<link href="/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet" type="text/css">
 <link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
-<link href="/css/user.css" rel="stylesheet">
+<link href="/css/tango/user.css" rel="stylesheet">
 @endsection
 
 @section('content')
-@include('layouts.header')
-@include('layouts.sidebar')
+@include('tango.layouts.header')
+@include('tango.layouts.sidebar')
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row bg-title">
@@ -88,12 +87,10 @@ Users
     </div>
 </div>
 
-@include('layouts.footer')
+@include('tango.layouts.footer')
 @endsection
 @section('jsfiles')
 <script src="/bower_components/datatables/jquery.dataTables.min.js"></script>
-<script src="/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
-<script src="/js/ampleadmin/waves.js"></script>
-<script src="/js/user.js"></script>
+<script src="/js/tango/user.js"></script>
 @endsection

@@ -10,7 +10,6 @@
 	    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	    <link href="/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
 	    @yield('cssfiles')
-	    <link href="/css/ampleadmin/css/style.css" rel="stylesheet">
 	    <link href="/css/ampleadmin/css/animate.css" rel="stylesheet">
 	    <link href="/css/ampleadmin/css/default.css" id="theme" rel="stylesheet">
 	    <link href="/css/ampleadmin/css/style.css" rel="stylesheet">
@@ -25,6 +24,7 @@
 	    <script src="/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 	    <script src="/js/ampleadmin/jquery.slimscroll.js"></script>
 		<script src="/js/ampleadmin/waves.js"></script>
+		<script src="/bower_components/footable/js/footable.all.min.js"></script>
 		<script src="/js/ampleadmin/footable-init.js"></script>
 		@yield('jsfiles')
 		<script src="/js/ampleadmin/custom.min.js"></script>

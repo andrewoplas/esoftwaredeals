@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\tango;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
 
 class CategoryController extends Controller
 {
-	public function __construct()
-     {
-          $this->middleware('auth');
+	public function __construct(){
+
+          //$this->middleware('auth:admin');
      }
 
 	public function index(){
 		$categories = Category::get();
 
-		return view('pages.categories',compact('categories'));
+		return view('tango.pages.categories',compact('categories'));
 	}
 
     public function store(Request $request){
@@ -31,7 +32,7 @@ class CategoryController extends Controller
 	public function show(Category $category){
 		$categories = Category::get();
 		$form_type = $category->exists == 1? 'Edit' : 'Add';
-		return view('pages.category_form',compact('category','form_type','categories'));
+		return view('tango.pages.category_form',compact('category','form_type','categories'));
 	}
 
 	public function update(Category $category){
