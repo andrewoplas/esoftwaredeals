@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/tango', [ 'as' => 'login', 'uses' => 'SessionController@create']);
+Route::get('/tango', [ 'as' => 'login', 'uses' => 'SessionController@create' ]);
 Route::post('/tango', 'SessionController@store');
 Route::get('/tango/logout', 'SessionController@destroy');
 
@@ -17,9 +17,10 @@ Route::patch('tango/categories', 'CategoryController@update');
 Route::delete('tango/categories', 'CategoryController@delete');
 
 Route::get('/tango/licenses', 'LicenseController@index');
+Route::get('/tango/licenses/detailed', [ 'middleware' => 'ajax', 'uses' => 'LicenseController@getDetailedView' ]);
 Route::get('/tango/licenses/add', 'LicenseController@create');
 Route::post('/tango/licenses/add', 'LicenseController@store');
-Route::post('/tango/licenses/delete', 'LicenseController@destroy');
+Route::delete('/tango/licenses/delete/{license}', 'LicenseController@destroy');
 
 Route::get('/tango/coupons', 'CouponController@index');
 Route::get('/tango/coupons/add', 'CouponController@show');
