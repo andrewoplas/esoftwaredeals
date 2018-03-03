@@ -18,7 +18,8 @@ $(document).ready(function() {
 
     licenseTable = $('#licenseTable').DataTable( {
         "bLengthChange": false,
-        "info": false
+        "info": false,
+        "order": []
     });
 
     detailedViewTableData = [];

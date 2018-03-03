@@ -20,58 +20,56 @@ Licenses
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                 <h4 class="page-title">Licenses</h4>
             </div>
-            <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                <ol class="breadcrumb">
-                    <li><a href="/tango/dashboard">Dashboard</a></li>
-                    <li class="active">Licenses</li>
-                </ol>
-            </div>
         </div>
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-7">
-                <div class="white-box">
-                    <h3 class="box-title m-b-0">List of Product Keys</h3>
-                    <div class="table-responsive">
-                        <!-- CSFR token for ajax call -->
-                        <input type="hidden" name="_token" val="{{ csrf_token() }}"/>
-                        <table id="licenseTable" class="table">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>License Key</th>
-                                    <th>Status</th>
-                                    <th>Date Added</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($licenses as $license)
+                <div class="panel panel-info">
+                    <div class="panel-heading"> 
+                       License List
+                    </div>
+                    <div class="white-box">
+                        <div class="table-responsive">
+                            <!-- CSFR token for ajax call -->
+                            <input type="hidden" name="_token" val="{{ csrf_token() }}"/>
+                            <table id="licenseTable" class="table">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            {{ $license->product_name }}
-                                        </td>
-                                        <td>
-                                            {{ $license->key }}
-                                        </td>
-                                        <td>
-                                            @if ($license->is_assigned != 0)
-                                                <span class="label label-success label-rounded">Assigned</span>
-                                            @else
-                                                <span class="label label-danger label-rounded">Unassigned</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            {{ \Carbon\Carbon::parse($license->created_at)->format('m/d/Y') }}
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete" onclick="confirm_delete({{ $license->id }}, this)">
-                                                <i class="ti-close" aria-hidden="true"></i>
-                                            </button>
-                                        </td>
+                                        <th>Product</th>
+                                        <th>License Key</th>
+                                        <th>Status</th>
+                                        <th>Date Added</th>
+                                        <th>Action</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($licenses as $license)
+                                        <tr>
+                                            <td>
+                                                {{ $license->product_name }}
+                                            </td>
+                                            <td>
+                                                {{ $license->key }}
+                                            </td>
+                                            <td>
+                                                @if ($license->is_assigned != 0)
+                                                    <span class="label label-success label-rounded">Assigned</span>
+                                                @else
+                                                    <span class="label label-danger label-rounded">Unassigned</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                {{ \Carbon\Carbon::parse($license->created_at)->format('m/d/Y') }}
+                                            </td>
+                                            <td>
+                                                <a href="javascript:void(0)" class="btn btn-danger btn-outline btn-circle" onclick="confirm_delete({{ $license->id }}, this)">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
