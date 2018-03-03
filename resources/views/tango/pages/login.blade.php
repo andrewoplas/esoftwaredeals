@@ -30,7 +30,7 @@
 		          		<i class="mdi mdi-lock form-control-feedback color-gray"></i>
 		        	</div>
 		        	<div class="form-group" style="height: 38px">
-			        	<div class="checkbox checkbox-success">
+			        	<div class="checkbox checkbox-info">
                             <input id="remember" type="checkbox" class="remember" name="remember">
                             <label for="remember" class="color-light-gray">Keep me signed in</label>
                         </div>
