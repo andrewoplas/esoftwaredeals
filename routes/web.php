@@ -12,9 +12,13 @@ Route::post('/tango/products/edit/{product}', 'ProductController@update');
 Route::post('/tango/products/add', 'ProductController@store');
 
 Route::get('/tango/categories', 'CategoryController@index');
-Route::post('/tango/categories', 'CategoryController@store');
+Route::get('/tango/categories/edit/{category}', 'CategoryController@show');
+Route::get('/tango/categories/add', 'CategoryController@show');
+Route::post('/tango/categories/edit/{category}', 'CategoryController@update');
+Route::post('/tango/categories/add', 'CategoryController@store');
 Route::patch('tango/categories', 'CategoryController@update');
-Route::delete('tango/categories', 'CategoryController@delete');
+Route::delete('/tango/categories/delete/{category}', 'CategoryController@destroy');
+//Route::delete('tango/categories', 'CategoryController@delete');
 
 Route::get('/tango/coupons', 'CouponController@index');
 Route::get('/tango/coupons/edit/{coupon}', 'CouponController@show');

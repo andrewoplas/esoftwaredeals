@@ -7,6 +7,11 @@ use App\Category;
 
 class CategoryController extends Controller
 {
+	public function __construct()
+     {
+          $this->middleware('auth');
+     }
+
 	public function index(){
 		$categories = Category::get();
 
@@ -20,12 +25,17 @@ class CategoryController extends Controller
 		$slug = str_slug(request('category_name'),'-');
 		$request->merge(['slug'=>$slug]);
 		Category::create(request(['category_name','parent_category','slug']));
-		return redirect('/categories');
+		return redirect('/tango/categories');
 	}
 
-	public function update(){
-		$categ = Category::find(request('categId'));
-		if($categ->category_name == request('category_name')){
+	public function show(Category $category){
+		$categories = Category::get();
+		$form_type = $category->exists == 1? 'Edit' : 'Add';
+		return view('pages.category_form',compact('category','form_type','categories'));
+	}
+
+	public function update(Category $category){
+		if($category->category_name == request('category_name')){
 			$this->validate(request(),[
 				'category_name' => 'required'
 			]);
@@ -34,19 +44,17 @@ class CategoryController extends Controller
 				'category_name' => 'required|unique:categories'
 			]);
 		}
-		$categ->category_name = request('category_name');
-		$categ->parent_category = request('parent_category');
+		$category->category_name = request('category_name');
+		$category->parent_category = request('parent_category');
 
 		//create Slug
 		$slug = str_slug(request('category_name'),'-');
-		$categ->slug = $slug;
-		$categ->save();
-		return redirect('/categories');
+		$category->slug = $slug;
+		$category->save();
+		return redirect('/tango/categories');
 	}
 
-	public function delete(){
-		$categ = Category::find(request('categId'));
-		$categ->delete();
-		return redirect('/categories');
+	public function destroy(Category $category){
+		$category->delete();
 	}
 }
