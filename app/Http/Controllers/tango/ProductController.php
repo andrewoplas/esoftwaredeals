@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\tango;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Http\Controllers\Controller;
 use App\Product;
 use App\Category;
 
@@ -12,21 +13,21 @@ class ProductController extends Controller
 {
      public function __construct()
      {
-          $this->middleware('auth');
+          $this->middleware('auth:admin');
      }
 
      public function index()
      {
           $products = Product::latest()->get();
           
-          return view('pages.products', compact('products'));
+          return view('tango.pages.products', compact('products'));
      }
 
      public function show(Product $product)
      {
           $categories = Category::latest()->get();
           $form_type = $product->exists == 1? 'Edit' : 'Add';
-          return view('pages.products_form', compact('product', 'categories', 'form_type'));
+          return view('tango.pages.products_form', compact('product', 'categories', 'form_type'));
      }
 
      public function store(Request $request)

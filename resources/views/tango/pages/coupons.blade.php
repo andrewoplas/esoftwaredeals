@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('tango.layouts.master')
 
 @section ('title')
      Coupons
@@ -13,8 +13,8 @@
 @endsection
 
 @section ('content')
-     @include ('layouts.header')
-     @include ('layouts.sidebar')
+     @include ('tango.layouts.header')
+     @include ('tango.layouts.sidebar')
 
      <div id="page-wrapper">
            <div class="container-fluid">
@@ -95,7 +95,7 @@
           </div>
      </div> 
 
-     @include ('layouts.footer');
+     @include ('tango.layouts.footer');
 @endsection
 
 @section ('jsfiles')
@@ -104,5 +104,5 @@
      <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
      <script src="{{ URL::asset('/bower_components/sweetalert/sweetalert.min.js') }}"></script>
-     <script src="{{ URL::asset('/js/coupon.js') }}"></script>
+     <script src="{{ URL::asset('/js/tango/coupon.js') }}"></script>
 @endsection

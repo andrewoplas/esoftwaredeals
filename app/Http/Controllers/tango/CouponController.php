@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\tango;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Coupon;
 
 class CouponController extends Controller
 {
      public function __construct()
      {
-          $this->middleware('auth');
+          $this->middleware('auth:admin');
      }
      
      public function index()
      {
           $coupons = Coupon::latest()->get();
-          return view('pages.coupons', compact('coupons'));
+          return view('tango.pages.coupons', compact('coupons'));
      }
 
      public function show(Coupon $coupon)
@@ -39,7 +40,7 @@ class CouponController extends Controller
                $end_datetime = date('Y-m-d H:i:s');
           }
 
-          return view('pages.coupons_form', compact('coupon', 'form_type', 'date', 'start_datetime', 'end_datetime'));
+          return view('tango.pages.coupons_form', compact('coupon', 'form_type', 'date', 'start_datetime', 'end_datetime'));
     }
 
     public function store(Request $request)
