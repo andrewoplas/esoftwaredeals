@@ -41,10 +41,11 @@
                                                             <th>Code</th>
                                                             <th>Type</th>
                                                             <th>Amount</th>
-                                                            <th>Quantity</th>
-                                                            <th>Is Enabled</th>
+                                                            <th>Rate</th>
+                                                            <th class="text-center">Status</th>
                                                             <th>Start Date</th>
                                                             <th>End Date</th>
+                                                            <th>Action</th>
                                                        </tr>
                                                   </thead>
 
@@ -52,10 +53,15 @@
 
                                                        @foreach ($coupons as $coupon)
                                                        <tr>
-                                                            <td>{{ $coupon->code }}</td>
+                                                            <td width="15%">{{ $coupon->code }}</td>
                                                             <td>{{ $coupon->type }}</td>
-                                                            <td>{{ $coupon->amount }}</td>
-                                                            <td>{{ $coupon->is_enabled }}</td>
+                                                            <td>{{ number_format($coupon->amount, 2, '.', ',') }}</td>
+                                                            <td>{{ $coupon->percent }}</td>
+                                                            <td>
+                                                                 <span class="label label-rouded label-{{ $coupon->status == 'Enabled' ? 'success' : 'danger' }} text-uppercase">
+                                                                      {{ $coupon->status }}
+                                                                 </span>
+                                                            </td>
                                                             <td>{{ date("F n, Y g:iA", strtotime($coupon->start_datetime)) }}</td>
                                                             <td>{{ date("F n, Y g:iA", strtotime($coupon->end_datetime)) }}</td>
                                                             <td>

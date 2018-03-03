@@ -40,11 +40,11 @@
                                                        <tr>
                                                             <th>Image</th>
                                                             <th>Product info</th>
-                                                            <th style="text-align:center">Quantity</th>
-                                                            <th style="text-align:center">Price</th>
-                                                            <th style="text-align:center">Sale Price</th>
-                                                            <th style="text-align:center">Category</th>
-                                                            <th style="text-align:center">Action</th>
+                                                            <th class="text-center">Quantity</th>
+                                                            <th class="text-center">Price</th>
+                                                            <th class="text-center">Sale Price</th>
+                                                            <th class="text-center">Category</th>
+                                                            <th class="text-center">Action</th>
                                                        </tr>
                                                   </thead>
 

@@ -17,9 +17,9 @@ class CreateCouponsTable extends Migration
             $table->increments('id');
             $table->text('code');
             $table->enum('type', ['Fixed Price', 'Rate']);
-            $table->double('amount', 15, 8);
-            $table->float('percent');
-            $table->enum('is_enabled', ['Yes', 'No']);
+            $table->double('amount', 15, 8)->default(0);
+            $table->float('percent')->default(0);
+            $table->enum('status', ['Enabled', 'Disabled']);
             $table->dateTime('start_datetime');
             $table->dateTime('end_datetime');
             $table->timestamps();

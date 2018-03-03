@@ -11,7 +11,7 @@ class Coupon extends Model
           'type',
           'amount',
           'percent',
-          'is_enabled',
+          'status',
           'start_datetime',
           'end_datetime',
     ];

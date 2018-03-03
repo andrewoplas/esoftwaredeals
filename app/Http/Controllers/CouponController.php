@@ -24,20 +24,19 @@ class CouponController extends Controller
           {
                $form_type = 'Edit';
 
-               $date = strtotime( $coupon->start_datetime); 
-               $start_datetime = date( 'm/d/Y h:s A', $date );
+               $date = date('m/d/Y h:i A', strtotime($coupon->start_datetime));
+               $date .= " - ";
+               $date .= date('m/d/Y h:i A', strtotime($coupon->end_datetime));
 
-               $date = strtotime( $coupon->end_datetime);
-               $end_datetime = date( 'm/d/Y h:s A', $date );
-
-               $date = $start_datetime . " - " . $end_datetime; 
+               $start_datetime = $coupon->start_datetime;
+               $end_datetime = $coupon->end_datetime;
           } 
           else 
           {
                $form_type = 'Add';
 
-               $start_datetime = date('m/d/Y h:s A');
-               $end_datetime = date('m/d/Y h:s A');
+               $start_datetime = date('Y-m-d H:i:s');
+               $end_datetime = date('Y-m-d H:i:s');
           }
 
           return view('pages.coupons_form', compact('coupon', 'form_type', 'date', 'start_datetime', 'end_datetime'));
@@ -50,7 +49,7 @@ class CouponController extends Controller
                'type' => 'required',
                'amount' => 'required|between: 0,100000|numeric',
                'percent' => 'required|between: 0,100|numeric',
-               'is_enabled' => 'required',
+               'status' => 'required',
                'start_datetime' => 'required',
                'end_datetime' => 'required'
           ]);
@@ -60,13 +59,18 @@ class CouponController extends Controller
      }
 
      public function update(Request $request)
-     {
+     {    
+          $coupon = Coupon::select('code')->where('id', $request->id)->get();
+          if($coupon[0]->code != $request->code)
+          {
+               $this->validate(request(), [ 'code' => 'required|unique:coupons' ]);
+          }
+
           $this->validate(request(), [
-               'code' => 'required|unique:coupons',
                'type' => 'required',
                'amount' => 'required|between: 0,100000|numeric',
                'percent' => 'required|between: 0,100|numeric',
-               'is_enabled' => 'required',
+               'status' => 'required',
                'start_datetime' => 'required',
                'end_datetime' => 'required'
           ]);
@@ -77,7 +81,7 @@ class CouponController extends Controller
                     'type' => $request->input('type'),
                     'amount' => $request->input('amount'),
                     'percent' => $request->input('percent'),
-                    'is_enabled' => $request->input('is_enabled'),
+                    'status' => $request->input('status'),
                     'start_datetime' => $request->input('start_datetime'),
                     'end_datetime' => $request->input('end_datetime'),
                ]);
