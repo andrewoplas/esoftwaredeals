@@ -1,0 +1,269 @@
+html,
+body {
+	display: table;
+	font-family: Roboto;
+	font-size: 18px;
+	height: 100%;
+    margin: 0;
+    padding: 0;
+	width: 100%;
+}
+
+body {
+	background: #EEEEEE;
+	display: table-cell;
+    vertical-align: middle;
+}
+
+h1 {
+	font-size: 32px !important;
+}
+
+p {
+	font-size: 14px !important;
+}
+
+.color-blue {
+	color: #039BE5 !important;
+}
+
+.color-gray {
+	color: #95989A !important;
+}
+
+.color-light-gray {
+	color: #B5B5B5 !important;
+}
+
+.text-danger {
+	color: red;
+	text-align: center;
+	font-size: 18px !important;
+	margin-top: 20px;
+}
+
+.btn-info {
+	background: #039BE5;
+	border: 1px solid #039BE5;
+	border-radius: 3px;
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+	color: #fff;
+	padding: 8px 12px;
+}
+
+.btn-info:hover,
+.btn-info:focus {
+	background: #039BE5 !important;
+	opacity: .8;
+}
+
+.btn-outline {
+	background: transparent;
+	color: #039BE5 !important;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+	background: #039BE5 !important;
+	color: #fff !important;
+}
+
+.input-field {
+	background: none;
+	box-shadow: none;
+	border: 0;
+	border-bottom: 2px solid #95989A;
+	border-radius: 0;
+	color: #95989A;
+	font-size: 18px;
+	margin-bottom: 25px;
+	padding: 0;
+}
+
+.input-field:focus {
+	border-bottom: 2px solid #039BE5;
+	box-shadow: none;
+	color: #039BE5;
+}
+
+.select-field {
+	background: none;
+	box-shadow: none;
+	border: 0;
+	border-bottom: 2px solid #95989A;
+	border-radius: 0;
+	color: #95989A;
+	font-size: 18px;
+	margin-bottom: 25px;
+	padding: 0;
+}
+
+.select-field:focus {
+	border-bottom: 2px solid #039BE5;
+	box-shadow: none;
+}
+
+.verify-input {
+	border-bottom: 2px solid red;
+}
+
+.verify-input:focus {
+	border-bottom: 2px solid #039BE5;
+}
+
+.steps-form-2 {
+    display: table;
+    width: 450px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.steps-form-2 .steps-row-2 {
+	display: table-row;
+}
+
+.steps-form-2 .steps-row-2:before {
+    top: 2px;
+    bottom: 0;
+    left: 15%;
+    position: absolute;
+    content: " ";
+    width: 70%;
+    height: 2px;
+    background-color: #B5B5B5;
+}
+
+.steps-form-2 .steps-row-2 .steps-step-2 {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+    width: 200px;
+}
+
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {
+	width: 50px;
+    height: 50px;
+    background-color: #686868 !important;
+    color: #FFF !important;
+    border-radius: 50%;
+    padding: 15px 18px 15px 18px;
+    margin-top: -22px;
+}
+
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2.active {
+	background-color: #039BE5 !important;
+	box-shadow: none;
+}
+
+.steps-form-2 .steps-row-2 .steps-step-2 .text {
+	font-size: 12px;
+	margin-top: 10px;
+	color: #686868;
+}
+
+.white-box {
+    background: #fff;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,.4);
+    margin-bottom: 30px;
+    padding: 25px;
+}
+
+#personal_details_form {
+	display: none;
+}
+
+#terms_and_agreement_form {
+	display: none;
+}
+
+.first-column {
+	height: 100%;
+	padding: 0 60px 0 50px;	
+}
+
+.registration-form {
+	display: table;
+	height: 500px;
+	margin: auto;
+	padding: 0;
+	width: 60%;
+}
+
+.register-heading-text {
+	font-weight: normal;
+	margin: 50px 0;
+}
+
+.register-button {
+	margin-top: 20px;
+	font-size: 18px;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+.text-center {
+	background: #CCCECE;
+	border-radius: 50px;
+	color: #95989A;
+	font-size: 32px;
+	height: 74px;
+	margin: 0 auto;
+	padding: 13px 0;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+  	width: 74px;
+  	z-index: 99999;
+}
+
+.second-column {
+	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), 
+				url("/images/registration-background.png");
+	height: 100%;
+}
+
+.login-with-text {
+	color: #fff;
+	line-height: 53px;
+	margin-bottom: 70px;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.facebook-button {
+	background: #32508E;
+	color: #fff;
+	display: block;
+	margin: 20px auto;
+	padding: 15px;
+	width: 260px;
+}
+
+.facebook-button:hover,
+.facebook-button:focus {
+	color: #fff;
+}
+
+.google-button {
+	background: #DD4B39;
+	color: #fff;
+	display: block;
+	margin: 20px auto;
+	padding: 15px;
+	width: 260px;
+}
+
+.google-button:hover,
+.google-button:focus {
+	color: #fff;
+}
+
+.personal-details-column {
+	padding: 0 60px 0 50px;
+}
+
+#state {
+	display: none;
+}
