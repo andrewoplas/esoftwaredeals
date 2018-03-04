@@ -35,12 +35,12 @@ Route::get('/tango/licenses/add', 'tango\LicenseController@create');
 Route::post('/tango/licenses/add', 'tango\LicenseController@store');
 Route::delete('/tango/licenses/delete/{license}', 'tango\LicenseController@destroy');
 
-// ----------------- Front end ----------------------------
-
-Route::get('/sautocomplete/{id}', 'SearchMatchController@autocomplete');
-Route::get('/search', 'SearchMatchController@show');
-Route::get('/', 'FrontEnd\HomepageController@index' );
-
 Route::get('/tango/users', 'tango\UserController@index');
 Route::get('/tango/users/{user}', 'tango\UserController@show');
 Route::delete('/tango/users/delete/{user}', 'tango\UserController@delete');
+
+/* ---------------------------- SITE ---------------------------- */
+
+Route::get('/', 'site\HomepageController@index' );
+Route::get('/sautocomplete/{id}', 'site\SearchMatchController@autocomplete');
+Route::get('/search', 'site\SearchMatchController@show');

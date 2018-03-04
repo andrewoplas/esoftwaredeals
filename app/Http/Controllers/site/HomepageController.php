@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\FrontEnd;
+namespace App\Http\Controllers\site;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
     public function index()
     {
-         // $coupons = Coupon::latest()->get();
-         return view('pages.frontend.home');
+         return view('site.pages.home');
     }
 }

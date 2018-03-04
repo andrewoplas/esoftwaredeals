@@ -1,1 +1,1 @@
-@extends('layouts.front_end.master')
+@extends('site.layouts.master')
