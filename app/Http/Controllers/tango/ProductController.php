@@ -60,7 +60,7 @@ class ProductController extends Controller
           list($type, $data) = explode(';', $data);
           list(, $data)      = explode(',', $data);
           $data = base64_decode($data);
-          file_put_contents(storage_path('product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug . '.png'), $data);
+          file_put_contents(storage_path('app' .DIRECTORY_SEPARATOR. 'public' .DIRECTORY_SEPARATOR. 'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug . '.png'), $data);
 
           Product::create($modified_data);
           return redirect('/tango/products');
@@ -84,17 +84,16 @@ class ProductController extends Controller
 
           if(strlen($request->image)>10)
           {
-               unlink(storage_path() . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $product[0]->slug . '.png');
+               unlink(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $product[0]->slug . '.png'));
                $data = $request->image;
                list($type, $data) = explode(';', $data);
                list(, $data)      = explode(',', $data);
                $data = base64_decode($data);
-               file_put_contents(storage_path() . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug . '.png', $data);
+               file_put_contents(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug . '.png'), $data);
           } 
           else if($product[0]->slug != $request->slug)
           {
-               Storage::disk('storage')->move('product_thumbnails' . DIRECTORY_SEPARATOR . $product[0]->slug .'.png', 
-                              'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug .'.png');     
+               Storage::disk('storage')->move('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $product[0]->slug .'.png', 'app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug .'.png');     
           } 
 
           Product::where('id', $request->input('id'))
@@ -112,7 +111,7 @@ class ProductController extends Controller
      }
 
      public function destroy(Product $product){
-          unlink(storage_path() . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $product->slug . '.png');
+          unlink(storage_path() . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $product->slug . '.png');
           $product->forceDelete();
      }
 }
