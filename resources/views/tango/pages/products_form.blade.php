@@ -109,7 +109,7 @@
                                                   <div class="row">
                                                        <div class="col-md-6">
                                                             <h3 class="box-title m-t-10">Product Image</h3>
-                                                            <img class="{{ $form_type == 'Add'?'hide':'' }}" id="product_thumbnail" src="Storage::disk('storage')->url($product->image)" width="350" />
+                                                            <img class="{{ $form_type == 'Add'?'hide':'' }}" id="product_thumbnail" src=" {{ Storage::disk('storage')->url($product->image) }} " width="350" />
                                                             <input type="hidden" id="imagebase64" name="image">
                                                             <div id="upload-display" style="width:350px;display: none;"></div>
                                                             <br>
