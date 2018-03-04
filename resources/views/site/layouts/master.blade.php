@@ -9,13 +9,13 @@
     	<title>@yield('title')</title>
     	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	    <link href="/css/site/default.css" rel="stylesheet">
 	    @yield('cssfiles')
-      	<link href="/css/site/default.css" rel="stylesheet">
 	</head>
 	<body class="fix-header">
 	    <header class="col-md-12" id="header-bar">
 	        <div class="header-logo-section col-md-3">
-	          <img src="{{ asset('images/es-6-explicit.png') }}" height="40" />
+	          <img src="/images/es-6-explicit.png" height="40" />
 	        </div>
 	        <div class="col-md-9 header-navigation">
 	          	<div class="col-md-6 pages-nav-container pull-left">
@@ -48,7 +48,7 @@
 			    	</div>
 			  	</div>
 	  			<div class="col-md-1 pull-right">
-	    			<a href="" class="profile-icon" ><img src="{{ asset('images/default-user-icon.png') }}" /></a>
+	    			<a href="" class="profile-icon" ><img src="/images/default-user-icon.png" /></a>
 	  			</div>
 			</div>
 	    </header>
