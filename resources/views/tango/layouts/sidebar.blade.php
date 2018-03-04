@@ -13,58 +13,6 @@
           </div>
 
           <ul class="nav" id="side-menu">
-               <li class="user-pro">
-                    <a href="#" class="waves-effect">
-                         <img src="/images/users/varun.jpg" alt="user-img" class="img-circle"> 
-                         <span class="hide-menu"> 
-                              Steve Gection
-                              <span class="fa arrow"></span>
-                         </span>
-                    </a>
-                    <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                         <li>
-                              <a href="javascript:void(0)">
-                                   <i class="ti-user"></i> 
-                                   <span class="hide-menu">
-                                        My Profile
-                                   </span>
-                              </a>
-                         </li>
-                         <li>
-                              <a href="javascript:void(0)">
-                                   <i class="ti-wallet"></i> 
-                                   <span class="hide-menu">
-                                        My Balance
-                                   </span>
-                              </a>
-                         </li>
-                         <li>
-                              <a href="javascript:void(0)">
-                                   <i class="ti-email"></i> 
-                                   <span class="hide-menu">
-                                        Inbox
-                                   </span>
-                              </a>
-                         </li>
-                         <li>
-                              <a href="javascript:void(0)">
-                                   <i class="ti-settings"></i> 
-                                   <span class="hide-menu">
-                                        Account Setting
-                                   </span>
-                              </a>
-                         </li>
-                         <li>
-                              <a href="javascript:void(0)">
-                                   <i class="fa fa-power-off"></i> 
-                                   <span class="hide-menu"> 
-                                        Logout
-                                   </span>
-                              </a>
-                         </li>
-                    </ul>
-               </li>
-
                <li> 
                     <a href="index.html" class="waves-effect">
                          <i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> 
@@ -140,7 +88,7 @@
 
                <li> 
                     <a href="javascript:void(0);" class="waves-effect">
-                         <i class="mdi mdi-file-document fa-fw" data-icon="v"></i> 
+                         <i class="ti ti-key fa-fw" data-icon="v"></i> 
                          <span class="hide-menu"> 
                               License 
                               <span class="fa arrow"></span> 

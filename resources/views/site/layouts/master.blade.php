@@ -10,7 +10,7 @@
 	    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	    <link href="/css/ampleadmin/css/animate.css" rel="stylesheet">
 	    @yield('cssfiles')
-      <link href="/css/frontend/css/default.css" rel="stylesheet">
+      	<link href="/css/frontend/css/default.css" rel="stylesheet">
 	    <link href="/css/ampleadmin/css/default.css" id="theme" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
