@@ -4,6 +4,7 @@ namespace App\Http\Controllers\tango;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Http\Controllers\Controller;
 use App\Product;
@@ -20,7 +21,16 @@ class ProductController extends Controller
      {
           $products = Product::latest()->get();
           
-          return view('tango.pages.products', compact('products'));
+          foreach ($products as $product) 
+          {
+              $quantity = DB::table('licenses')
+                     ->select(DB::raw('count(*) as license_count'))
+                     ->where('product_id', '=', $product->id)
+                     ->get();
+              $product['quantity'] = $quantity[0]->license_count;
+          }
+          
+          return view('tango.pages.products', compact('products', 'quantity'));
      }
 
      public function show(Product $product)
@@ -39,18 +49,18 @@ class ProductController extends Controller
                'description' => 'required',
                'price' => 'required|between: 0,9999999999|numeric',
                'sale_price' => 'required|between: 0,9999999999|numeric',
-               'quantity' => 'required|integer',
-               'availability' => 'required',
                'image' => 'required'
           ]);
+          
           $modified_data = $request->all();
-          $modified_data['image'] = '/images/product_thumbnails/' . $request->slug . '.png';
+          $modified_data['image'] = 'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug . '.png';
+         
 
           $data = $request->input('image');
           list($type, $data) = explode(';', $data);
           list(, $data)      = explode(',', $data);
           $data = base64_decode($data);
-          file_put_contents(public_path('\images\product_thumbnails\\' .  $request->slug . '.png'), $data);
+          file_put_contents(storage_path('product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug . '.png'), $data);
 
           Product::create($modified_data);
           return redirect('/tango/products');
@@ -69,24 +79,22 @@ class ProductController extends Controller
                'description' => 'required',
                'price' => 'required|between:0,999999999|numeric',
                'sale_price' => 'required|between:0,999999999|numeric',
-               'quantity' => 'required|integer',
-               'availability' => 'required',
                'image' => 'required'
           ]);
 
           if(strlen($request->image)>10)
           {
-               unlink(public_path('/images/product_thumbnails/'. $product[0]->slug .'.png'));
+               unlink(storage_path() . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $product[0]->slug . '.png');
                $data = $request->image;
                list($type, $data) = explode(';', $data);
                list(, $data)      = explode(',', $data);
                $data = base64_decode($data);
-               file_put_contents(public_path('\images\product_thumbnails\\' .  $request->slug . '.png'), $data);
+               file_put_contents(storage_path() . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug . '.png', $data);
           } 
           else if($product[0]->slug != $request->slug)
           {
-               Storage::disk('local_public')->move('/images/product_thumbnails/'. $product[0]->slug .'.png', 
-                              '/images/product_thumbnails/'. $request->slug .'.png');     
+               Storage::disk('storage')->move('product_thumbnails' . DIRECTORY_SEPARATOR . $product[0]->slug .'.png', 
+                              'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug .'.png');     
           } 
 
           Product::where('id', $request->input('id'))
@@ -97,16 +105,14 @@ class ProductController extends Controller
                     'price'=> $request->input('price'),
                     'sale_price'=> $request->input('sale_price'),
                     'description'=> $request->input('description'),
-                    'quantity'=> $request->input('quantity'),
-                    'availability'=> $request->input('availability'),
-                    'image'=> '/images/product_thumbnails/' . $request->slug . '.png',
+                    'image'=> 'product_thumbnails' . DIRECTORY_SEPARATOR . $request->slug . '.png',
                ]);
 
           return redirect('/tango/products');
      }
 
      public function destroy(Product $product){
-          unlink(public_path('/images/product_thumbnails/'. $product->slug .'.png'));
+          unlink(storage_path() . DIRECTORY_SEPARATOR . 'product_thumbnails' . DIRECTORY_SEPARATOR . $product->slug . '.png');
           $product->forceDelete();
      }
 }

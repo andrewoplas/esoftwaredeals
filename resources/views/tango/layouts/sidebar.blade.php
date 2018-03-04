@@ -112,7 +112,7 @@
 
                <li> 
                     <a href="javascript:void(0);" class="waves-effect">
-                         <i class="mdi mdi-cart-outline fa-fw" data-icon="v"></i> 
+                         <i class="mdi mdi-cash-usd fa-fw" data-icon="v"></i> 
                          <span class="hide-menu"> 
                               Coupon 
                               <span class="fa arrow"></span> 

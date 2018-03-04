@@ -3,9 +3,9 @@
 Auth::routes();
 
 Route::get('/tango','Auth\AdminLoginController@show');
-Route::post('/tango','Auth\AdminLoginController@show');
-Route::get('/tango/dashboard','Auth\AdminLoginController@show');
-Route::get('/tango/logout','Auth\AdminLoginController@show');
+Route::post('/tango','Auth\AdminLoginController@login');
+Route::get('/tango/dashboard','AdminController@index');
+Route::get('/tango/logout','Auth\AdminLoginController@logout');
 
 Route::get('/tango/products', 'tango\ProductController@index');
 Route::get('/tango/products/edit/{product}', 'tango\ProductController@show');
@@ -29,11 +29,11 @@ Route::delete('/tango/coupons/delete/{coupon}', 'tango\CouponController@destroy'
 Route::post('/tango/coupons/edit/{coupon}', 'tango\CouponController@update');
 Route::post('/tango/coupons/add', 'tango\CouponController@store');
 
-Route::get('/tango/licenses', 'LicenseController@index');
-Route::get('/tango/licenses/detailed', [ 'middleware' => 'ajax', 'uses' => 'LicenseController@getDetailedView' ]);
-Route::get('/tango/licenses/add', 'LicenseController@create');
-Route::post('/tango/licenses/add', 'LicenseController@store');
-Route::delete('/tango/licenses/delete/{license}', 'LicenseController@destroy');
+Route::get('/tango/licenses', 'tango\LicenseController@index');
+Route::get('/tango/licenses/detailed', [ 'middleware' => 'ajax', 'uses' => 'tango\LicenseController@getDetailedView' ]);
+Route::get('/tango/licenses/add', 'tango\LicenseController@create');
+Route::post('/tango/licenses/add', 'tango\LicenseController@store');
+Route::delete('/tango/licenses/delete/{license}', 'tango\LicenseController@destroy');
 
 // ----------------- Front end ----------------------------
 

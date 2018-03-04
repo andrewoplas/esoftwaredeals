@@ -5,11 +5,10 @@
 @endsection
 
 @section ('cssfiles')
-     <link href="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet" />
-     <link href="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
-     <link href="{{ URL::asset('/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet">
-     <link href="{{ URL::asset('/bower_components/timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet">
-     <link href="{{ URL::asset('/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+     <link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+     <link href="/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+     <link href="/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+     <link href="/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 @endsection
 
 @section ('content')
@@ -123,19 +122,15 @@
           </div>
      </div>
 
-     @include ('tango.layouts.footer');
+     @include ('tango.layouts.footer')
 @endsection
 
 @section ('jsfiles')
-     <script src="{{ URL::asset('js/ampleadmin/jquery.slimscroll.js') }}"></script>
-     <script src="{{ URL::asset('js/ampleadmin/waves.js') }}"></script>
-     <script src="{{ URL::asset('js/ampleadmin/footable-init.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>     
-     <script src="{{ URL::asset('/bower_components/footable/js/footable.all.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/moment/moment.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/timepicker/bootstrap-timepicker.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-     <script src="{{ URL::asset('/js/tango/coupon.js') }}"></script>
+     <script src="/bower_components/moment/moment.js"></script>
+     <script src="/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+     <script src="/bower_components/timepicker/bootstrap-timepicker.min.js"></script>
+     <script src="/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+     <script src="/js/tango/coupon.js"></script>
+     <script>coupon_form_init()</script>
+     
 @endsection

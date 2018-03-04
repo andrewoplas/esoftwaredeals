@@ -5,10 +5,10 @@ Users
 @endsection
 
 @section('cssfiles')
-<meta name="csrf-token" content="{{ csrf_token() }}" />
-<link href="/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-<link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
-<link href="/css/tango/user.css" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link href="/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="/css/tango/user.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -90,7 +90,7 @@ Users
 @include('tango.layouts.footer')
 @endsection
 @section('jsfiles')
-<script src="/bower_components/datatables/jquery.dataTables.min.js"></script>
-<script src="/bower_components/sweetalert/sweetalert.min.js"></script>
-<script src="/js/tango/user.js"></script>
+    <script src="/bower_components/datatables/jquery.dataTables.min.js"></script>
+    <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
+    <script src="/js/tango/user.js"></script>
 @endsection

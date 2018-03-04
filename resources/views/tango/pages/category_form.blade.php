@@ -70,10 +70,9 @@ Categories - {{ $form_type }}
     </div>
 </div>
 
-@include('tango.layouts.footer');
+@include('tango.layouts.footer')
 @endsection
-@section('jsfiles')   
-     <script src="/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+@section('jsfiles')
      <script src="/bower_components/bootstrap-select/bootstrap-select.min.js"></script>
      <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
 @endsection

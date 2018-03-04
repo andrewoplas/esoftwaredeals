@@ -6,10 +6,8 @@
 
 @section ('cssfiles')
      <meta name="csrf-token" content="{{ csrf_token() }}" />
-     <link href="{{ URL::asset('/bower_components/footable/css/footable.core.css') }}" rel="stylesheet">
-     <link href="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet" />
-     <link href="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
-     <link href="{{ URL::asset('/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet">
+     <link href="/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+     <link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet">
 @endsection
 
 @section ('content')
@@ -28,14 +26,14 @@
                     <div class="col-md-9 col-lg-9 col-sm-7">
                          <div class="panel panel-info">
                               <div class="panel-heading"> 
-                                   List of Coupons ({{ count($coupons) }} items)
+                                   Coupon List
                               </div>
                               <div class="panel-wrapper collapse in">
                                    <div class="panel-body">
                                         <div class="table-responsive">
                                              <!-- CSFR token for ajax call -->
                                              <input type="hidden" name="_token" val="{{ csrf_token() }}"/>
-                                             <table class="table product-overview">
+                                             <table class="table" id="couponTable">
                                                   <thead>
                                                        <tr>
                                                             <th>Code</th>
@@ -84,10 +82,18 @@
                     </div>
 
                     <div class="col-md-3 col-lg-3 col-sm-5">
+                        <div class="white-box">
+                            <h3 class="box-title" style="margin-bottom: 0px">All Coupons
+                                <span class="pull-right" id="count">
+                                    {{ $coupons->count() }}
+                                </span>
+                            </h3>
+                        </div>  
+                        
                          <div class="white-box">
-                              <h3 class="box-title">Add Coupon</h3>
+                              <h3 class="box-title">New Coupon</h3>
                               <hr>
-                              <a href="/tango/coupons/add" class="btn btn-info btn-block">Add</a>
+                              <a href="/tango/coupons/add" class="btn btn-info btn-block">Add New Coupon</a>
                          </div>
                     </div>
 
@@ -95,14 +101,12 @@
           </div>
      </div> 
 
-     @include ('tango.layouts.footer');
+     @include ('tango.layouts.footer')
 @endsection
 
 @section ('jsfiles')
-     <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
-     <script src="{{ URL::asset('js/ampleadmin/jquery.slimscroll.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/sweetalert/sweetalert.min.js') }}"></script>
-     <script src="{{ URL::asset('/js/tango/coupon.js') }}"></script>
+     <script src="/bower_components/datatables/jquery.dataTables.min.js"></script>
+     <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
+     <script src="/js/tango/coupon.js"></script>
+     <script> coupon_init(); </script>
 @endsection

@@ -47,6 +47,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        
+        // 'storage' => [
+        //     'driver' => 'local',
+        //     'root' => storage_path(),
+        // ],
 
         'public' => [
             'driver' => 'local',
@@ -55,10 +60,6 @@ return [
             'visibility' => 'public',
         ],
 
-        'local_public' => [
-             'driver' => 'local',
-             'root'   => public_path(),
-          ],
 
         's3' => [
             'driver' => 's3',

@@ -44,6 +44,9 @@ function confirm_delete(id, product_name, element){
                          showConfirmButton: true
                     });
                     $(element).parents('tr').hide(1000);
+                    var count = parseInt($('#count').text());
+                    $('#count').text(count - 1);
+                    
                },
                error: function(jqXHR, status, error) 
                {

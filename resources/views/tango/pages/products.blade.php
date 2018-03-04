@@ -6,10 +6,8 @@
 
 @section ('cssfiles')
      <meta name="csrf-token" content="{{ csrf_token() }}" />
-     <link href="{{ URL::asset('/bower_components/footable/css/footable.core.css') }}" rel="stylesheet">
-     <link href="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet" />
-     <link href="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
-     <link href="{{ URL::asset('/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet">
+     <link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+     <link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet">
 @endsection
 
 @section ('content')
@@ -28,7 +26,7 @@
                     <div class="col-md-9 col-lg-9 col-sm-7">
                          <div class="panel panel-info">
                               <div class="panel-heading"> 
-                                   List of Products ({{ count($products) }} items)
+                                   Product List
                               </div>
                               <div class="panel-wrapper collapse in">
                                    <div class="panel-body">
@@ -53,13 +51,13 @@
                                                        @foreach ($products as $product)
                                                        <tr>
                                                             <td width="13%">
-                                                                 <img src="{{ $product->image }}" alt="{{ $product->product_name }}'s image" width="80">
+                                                                 <img src="{{ Storage::disk('storage')->url($product->image) }}" alt="{{ $product->product_name }}'s image" width="80">
                                                             </td>
                                                             <td width="35%">
                                                                  <h5>{{ $product->product_name }}</h5>
                                                                  <p>{{ str_limit($product->description, 125) }}</p>
                                                             </td>
-                                                            <td align="center" width="10%">{{ $product->quantity }}</td>
+                                                            <td align="center" width="10%"> {{ $product->quantity }} </td>
                                                             <td align="center" width="8%">{{ number_format($product->price, 2, '.', ',') }}</td>
                                                             <td align="center" width="10%">{{ number_format($product->sale_price, 2, '.', ',') }}</td>
                                                             <td align="center" width="5%">{{ $product->category }}</td>
@@ -83,27 +81,30 @@
                     </div>
 
                     <div class="col-md-3 col-lg-3 col-sm-5">
+                        <div class="white-box">
+                            <h3 class="box-title" style="margin-bottom: 0px">All Products
+                                <span class="pull-right" id="count">
+                                    {{ $products->count() }}
+                                </span>
+                            </h3>
+                        </div>  
+              
                          <div class="white-box">
-                              <h3 class="box-title">Add Product</h3>
+                              <h3 class="box-title">New Product</h3>
                               <hr>
-                              <a href="/tango/products/add" class="btn btn-info btn-block">Add</a>
+                              <a href="/tango/products/add" class="btn btn-info btn-block">Add New Product</a>
                          </div>
                     </div>
              </div>
           </div>
      </div> 
 
-     @include ('tango.layouts.footer');
+     @include ('tango.layouts.footer')
 @endsection
 
-@section ('jsfiles')
-     <script src="{{ URL::asset('js/ampleadmin/jquery.slimscroll.js') }}"></script>
-     <script src="{{ URL::asset('js/ampleadmin/waves.js') }}"></script>
-     <script src="{{ URL::asset('js/ampleadmin/footable-init.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>     
-     <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/footable/js/footable.all.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/sweetalert/sweetalert.min.js') }}"></script>
-     <script src="{{ URL::asset('/js/tango/product.js') }}"></script>
+@section ('jsfiles')  
+     <script src="/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+     <script src="/bower_components/bootstrap-select/bootstrap-select.min.js"></script>
+     <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
+     <script src="/js/tango/product.js"></script>
 @endsection

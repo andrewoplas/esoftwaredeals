@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\tango;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\License;
@@ -10,7 +11,7 @@ class LicenseController extends Controller
 {
 	public function __construct()
 	{
-	    $this->middleware('auth');
+	    $this->middleware('auth:admin');
 	}
 
 	public function index()
@@ -38,7 +39,7 @@ class LicenseController extends Controller
 				$licenses_container[$license->product_name]['assigned']++;
 			}
 		}
-		return view('pages.licenses', compact('licenses', 'licenses_is_assigned', 'licenses_not_assigned', 'licenses_container'));
+		return view('tango.pages.licenses', compact('licenses', 'licenses_is_assigned', 'licenses_not_assigned', 'licenses_container'));
 	}
 
 	public function create()
@@ -55,7 +56,7 @@ class LicenseController extends Controller
 			}
 			array_push($products_container[$product->category_name], $product);
 		}
-		return view('pages.add_license', compact('products_container'));
+		return view('tango.pages.add_license', compact('products_container'));
 	}
 
 	public function store(Request $request)
@@ -80,10 +81,10 @@ class LicenseController extends Controller
 	      	
 	    } else {
 			$file = $request->file('bulk_key');
-			$destinationPath = storage_path() . '/keys';
+			$destinationPath = storage_path() . DIRECTORY_SEPARATOR . 'keys';
 			$file->move($destinationPath, $file->getClientOriginalName());
 
-			$path = storage_path() . '\keys\\' . $file->getClientOriginalName();
+			$path = storage_path() . DIRECTORY_SEPARATOR . 'keys' . DIRECTORY_SEPARATOR . $file->getClientOriginalName();
 
 			if (($handle = fopen($path, 'r')) !== false) {
 	        	while (($data = fgetcsv($handle, 1000, ',')) !== false) {

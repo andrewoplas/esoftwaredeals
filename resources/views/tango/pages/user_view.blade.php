@@ -5,11 +5,10 @@ User Accounts - User Detail
 @endsection
 
 @section('cssfiles')
-<meta name="csrf-token" content="{{ csrf_token() }}" />
-<link href="/bower_components/footable/css/footable.core.css" rel="stylesheet">
-<link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-<link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet">
-<link href="/css/tango/user.css" rel="stylesheet">
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
+	<link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+	<link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet">
+	<link href="/css/tango/user.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -228,8 +227,7 @@ User Accounts - User Detail
 @endsection
 
 @section('jsfiles')
-<script src="/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-<script src="/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-<script src="/bower_components/sweetalert/sweetalert.min.js"></script>
-<script src="/js/tango/user.js"></script>
+	<script src="/bower_components/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="/bower_components/sweetalert/sweetalert.min.js"></script>
+	<script src="/js/tango/user.js"></script>
 @endsection

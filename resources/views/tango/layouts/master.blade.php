@@ -9,10 +9,11 @@
     	<title>@yield('title')</title>
 	    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	    <link href="/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+	    <link href="/bower_components/footable/css/footable.core.css" rel="stylesheet">
 	    @yield('cssfiles')
 	    <link href="/css/ampleadmin/css/animate.css" rel="stylesheet">
-	    <link href="/css/ampleadmin/css/default.css" id="theme" rel="stylesheet">
 	    <link href="/css/ampleadmin/css/style.css" rel="stylesheet">
+	    <link href="/css/ampleadmin/css/default.css" id="theme" rel="stylesheet">
 	</head>
 	<body class="fix-header">
 		<div id="wrapper">

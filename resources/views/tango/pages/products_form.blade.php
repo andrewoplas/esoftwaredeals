@@ -5,10 +5,9 @@
 @endsection
 
 @section ('cssfiles')
-     <link href="{{ URL::asset('/bower_components/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet" />
-     <link href="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
-     <link href="{{ URL::asset('/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
-     <link href="{{ URL::asset('/bower_components/croppie/croppie.css') }}" rel="stylesheet" />
+     <link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+     <link href="/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+     <link href="/bower_components/croppie/croppie.css" rel="stylesheet" />
 @endsection
 
 @section ('content')
@@ -40,7 +39,7 @@
 
                                                   <input type="hidden" name="id" value="{{ @$product->id }}">
                                                   <input type="hidden" name="edited" value="0">
-
+                                                    
                                                   <div class="row">
                                                        <div class="col-md-6">
                                                             <div class="form-group">
@@ -50,10 +49,11 @@
                                                        </div>
                                                        <div class="col-md-6">
                                                             <div class="form-group">
-                                                                 <label class="control-label">Code</label>
-                                                                 <input type="text" class="form-control" name="code" value="{{ @$product->code }}" required>
+                                                                 <label class="control-label">Slug</label>
+                                                                 <input type="text" class="form-control" name="slug" value="{{ @$product->slug }}" required readonly> 
                                                             </div>
                                                        </div>
+                                                      
                                                   </div>
                                                    
                                                   <div class="row">
@@ -72,15 +72,6 @@
                                                                  </select>
                                                             </div>
                                                        </div>
-                                                       <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                 <label class="control-label">Slug</label>
-                                                                 <input type="text" class="form-control" name="slug" value="{{ @$product->slug }}" required readonly> 
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                                   
-                                                  <div class="row">
                                                        <div class="col-md-3">
                                                             <div class="form-group">
                                                                  <label>Price</label>
@@ -103,33 +94,7 @@
                                                                  </div>
                                                            </div>
                                                        </div>
-                                                       <div class="col-md-3">
-                                                            <div class="form-group">
-                                                                 <label class="control-label">Quantity</label>
-                                                                 <input type="text" class="form-control" name="quantity" value="{{@$product->quantity}}" required> 
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-md-3">
-                                                            <div class="form-group">
-                                                                 <label class="control-label">Availability</label>
-                                                                 <div class="radio-list">
-                                                                      <label class="radio-inline p-0">
-                                                                           <div class="radio radio-info">
-                                                                                <input type="radio" name="availability" id="yes" value="Yes" required 
-                                                                                {{ @$product->availability == 'Yes'? 'checked' : '' }} >
-                                                                                <label for="yes">Yes</label>
-                                                                           </div>
-                                                                      </label>
-                                                                      <label class="radio-inline">
-                                                                           <div class="radio radio-info">
-                                                                                <input type="radio" name="availability" id="no" value="No" required
-                                                                                {{ @$product->availability == 'No'? 'checked' : '' }} >
-                                                                                <label for="no">No</label>
-                                                                           </div>
-                                                                      </label>
-                                                                 </div>
-                                                            </div>
-                                                       </div>
+                                                       
                                                   </div>
 
                                                   <h3 class="box-title m-t-10">Product Description</h3>
@@ -143,8 +108,8 @@
                                                    
                                                   <div class="row">
                                                        <div class="col-md-6">
-                                                            <h3 class="box-title m-t-10">Product Description</h3>
-                                                            <img class="{{ $form_type == 'Add'?'hide':'' }}" id="product_thumbnail" src="{{ $product->image }}" width="350" />
+                                                            <h3 class="box-title m-t-10">Product Image</h3>
+                                                            <img class="{{ $form_type == 'Add'?'hide':'' }}" id="product_thumbnail" src="Storage::disk('storage')->url($product->image)" width="350" />
                                                             <input type="hidden" id="imagebase64" name="image">
                                                             <div id="upload-display" style="width:350px;display: none;"></div>
                                                             <br>
@@ -175,16 +140,12 @@
           </div>
      </div>
 
-     @include ('tango.layouts.footer');
+     @include ('tango.layouts.footer')
 @endsection
 
 @section ('jsfiles')
-     <script src="{{ URL::asset('/js/ampleadmin/jquery.slimscroll.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/footable/js/footable.all.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/croppie/croppie.min.js') }}"></script>
-     <script src="{{ URL::asset('/bower_components/croppie/croppie-custom.js') }}"></script>
-     <script src="{{ URL::asset('/js/tango/product.js') }}"></script>
+     <script src="/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+     <script src="/bower_components/croppie/croppie.min.js"></script>
+     <script src="/bower_components/croppie/croppie-custom.js"></script>
+     <script src="/js/tango/product.js"></script>
 @endsection

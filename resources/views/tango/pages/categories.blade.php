@@ -7,7 +7,6 @@
 @section ('cssfiles')
      <meta name="csrf-token" content="{{ csrf_token() }}" />
      <link href="/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-     <link href="/bower_components/footable/css/footable.core.css" rel="stylesheet">
      <link href="/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
      <link href="/bower_components/sweetalert/sweetalert.css" rel="stylesheet">
 @endsection
@@ -83,7 +82,7 @@
 
             <div class="col-md-3 col-lg-3 col-sm-5">
               <div class="white-box">
-                  <h3 class="box-title" style="margin-bottom: 0px">All Category <span class="pull-right" id="allCategoriesCount">{{ $categories->count() }}</span></h3>
+                  <h3 class="box-title" style="margin-bottom: 0px">All Categories <span class="pull-right" id="allCategoriesCount">{{ $categories->count() }}</span></h3>
               </div>   
             </div>
             <div class="col-md-3 col-lg-3 col-sm-5">
@@ -97,12 +96,11 @@
           </div>
      </div> 
 
-     @include ('tango.layouts.footer');
+     @include ('tango.layouts.footer')
 @endsection
 
 @section ('jsfiles')
      <script src="/bower_components/datatables/jquery.dataTables.min.js"></script>    
-     <script src="/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
      <script src="/bower_components/bootstrap-select/bootstrap-select.min.js"></script>
      <script src="/bower_components/sweetalert/sweetalert.min.js"></script>
      <script src="/js/tango/category.js"></script>

@@ -1,7 +1,7 @@
 @extends ('tango.layouts.master')
 
 @section ('cssfiles')
-    <link href="/css/login.css" rel="stylesheet">
+    <link href="/css/tango/login.css" rel="stylesheet">
 @endsection
 
 @section ('title')

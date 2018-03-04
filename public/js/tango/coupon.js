@@ -1,33 +1,11 @@
-$('.input-daterange-timepicker').daterangepicker({
-    timePicker: true,
-    locale: {
-        format: 'MM/DD/YYYY h:mm A'
-    },
-    timePickerIncrement: 1,
-    timePicker12Hour: true,
-    timePickerSeconds: false,
-    buttonClasses: ['btn', 'btn-sm'],
-    applyClass: 'btn-danger',
-    cancelClass: 'btn-inverse'
-});
+function coupon_init() {
 
-$('.input-daterange-timepicker').on('apply.daterangepicker hide.daterangepicker', function(ev, picker) {
-    $("[name='start_datetime']").val(picker.startDate.format('YYYY-MM-DD H:mm:ss'));
-    $("[name='end_datetime']").val(picker.endDate.format('YYYY-MM-DD H:mm:ss'));
-});
-
-$("[name='type']").on('change',function(){
-    var type = $(this).val();
-
-    if(type == "Fixed Price"){
-         $("[name='amount']").removeAttr("readonly", "");
-         $("[name='percent']").attr("readonly", "").val("0");
-    } else {
-         $("[name='amount']").attr("readonly", "").val("0");
-         $("[name='percent']").removeAttr("readonly");
-    }
-});
-$("[name='type']").change();
+    couponTable = $('#couponTable').DataTable( {
+        "bLengthChange": false,
+        "info": false,
+        "order": []
+    });
+}
 
 function confirm_delete(id, code, element){
      code = "'" + code + "'";
@@ -57,7 +35,9 @@ function confirm_delete(id, code, element){
                          type: "success",
                          showConfirmButton: true
                     });
-                    $(element).parents('tr').hide(1000);
+                    couponTable.row($(element).parents('tr')).remove().draw();
+                    var count = parseInt($('#count').text());
+                    $('#count').text(count - 1);
                },
                error: function(jqXHR, status, error) 
                {
@@ -65,4 +45,38 @@ function confirm_delete(id, code, element){
                }
           });
      });
-}     
+}    
+
+function coupon_form_init() {
+    
+    $('.input-daterange-timepicker').daterangepicker({
+        timePicker: true,
+        locale: {
+            format: 'MM/DD/YYYY h:mm A'
+        },
+        timePickerIncrement: 1,
+        timePicker12Hour: true,
+        timePickerSeconds: false,
+        buttonClasses: ['btn', 'btn-sm'],
+        applyClass: 'btn-danger',
+        cancelClass: 'btn-inverse'
+    });
+    
+    $('.input-daterange-timepicker').on('apply.daterangepicker hide.daterangepicker', function(ev, picker) {
+        $("[name='start_datetime']").val(picker.startDate.format('YYYY-MM-DD H:mm:ss'));
+        $("[name='end_datetime']").val(picker.endDate.format('YYYY-MM-DD H:mm:ss'));
+    });
+    
+    $("[name='type']").on('change',function(){
+        var type = $(this).val();
+    
+        if(type == "Fixed Price"){
+             $("[name='amount']").removeAttr("readonly", "");
+             $("[name='percent']").attr("readonly", "").val("0");
+        } else {
+             $("[name='amount']").attr("readonly", "").val("0");
+             $("[name='percent']").removeAttr("readonly");
+        }
+    });
+    $("[name='type']").change();
+}
