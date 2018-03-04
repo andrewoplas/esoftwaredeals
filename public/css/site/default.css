@@ -115,9 +115,7 @@ p {
 }
 
 #wrapper {
-    width: 1280px;
-    margin: auto;
-    margin-bottom: 100px;
+    padding: 160px 40px 100px;
 }
 
 /* End General */
