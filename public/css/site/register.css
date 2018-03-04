@@ -1,44 +1,6 @@
-html,
-body {
-	display: table;
-	font-family: Roboto;
-	font-size: 18px;
-	height: 100%;
-    margin: 0;
-    padding: 0;
-	width: 100%;
-}
-
-body {
-	background: #EEEEEE;
-	display: table-cell;
-    vertical-align: middle;
-}
-
-h1 {
-	font-size: 32px !important;
-}
-
-p {
-	font-size: 14px !important;
-}
-
-.color-blue {
-	color: #039BE5 !important;
-}
-
-.color-gray {
-	color: #95989A !important;
-}
-
-.color-light-gray {
-	color: #B5B5B5 !important;
-}
-
 .text-danger {
 	color: red;
 	text-align: center;
-	font-size: 18px !important;
 	margin-top: 20px;
 }
 
@@ -75,7 +37,7 @@ p {
 	border-bottom: 2px solid #95989A;
 	border-radius: 0;
 	color: #95989A;
-	font-size: 18px;
+	font-size: 16px;
 	margin-bottom: 25px;
 	padding: 0;
 }
@@ -93,7 +55,7 @@ p {
 	border-bottom: 2px solid #95989A;
 	border-radius: 0;
 	color: #95989A;
-	font-size: 18px;
+	font-size: 16px;
 	margin-bottom: 25px;
 	padding: 0;
 }
@@ -197,7 +159,7 @@ p {
 
 .register-button {
 	margin-top: 20px;
-	font-size: 18px;
+	font-size: 16px;
 	text-transform: uppercase;
 	width: 100%;
 }
@@ -206,10 +168,10 @@ p {
 	background: #CCCECE;
 	border-radius: 50px;
 	color: #95989A;
-	font-size: 32px;
+	font-size: 28px;
 	height: 74px;
 	margin: 0 auto;
-	padding: 13px 0;
+	padding: 15px 0;
 	position: absolute;
 	top: 50%;
 	left: 0;

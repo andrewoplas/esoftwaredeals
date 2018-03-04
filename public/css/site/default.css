@@ -1,19 +1,81 @@
+/* Fonts */
+
 @font-face {
     font-family: Roboto;
     src: url(/fonts/Roboto-Regular.ttf);
 }
+
+/* End Fonts */
+
+/* General */
 
 body {
     background-color: #eee;
     font-family: 'Roboto';
 }
 
+h1 {
+    font-size: 28px !important;
+}
+
+h2 {
+    font-size: 26px !important;
+}
+
+h3 {
+    font-size: 24px !important;
+}
+
+h4 {
+    font-size: 22px !important;
+}
+
+h5 {
+    font-size: 20px !important;
+}
+
+h6 {
+    font-size: 18px !important;
+}
+
 p {
-    font-size: 18px;
+    font-size: 16px !important;
+}
+
+.color-blue {
+    color: #039BE5 !important;
+}
+
+.color-gray {
+    color: #95989A !important;
+}
+
+.color-light-gray {
+    color: #B5B5B5 !important;
+}
+
+.btn-info {
+    background: #039BE5;
+    border: 1px solid #039BE5;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    color: #fff;
+    padding: 8px 12px;
+}
+
+.btn-info:hover,
+.btn-info:focus {
+    background: #039BE5 !important;
+    opacity: .8;
 }
 
 .align-center {
     text-align: center;
+}
+
+.center-elements {
+    align-items: center;
+    margin-top: 100px;
 }
 
 .padding-sm {
@@ -28,11 +90,39 @@ p {
     height: 100%;
 }
 
+.bold-text {
+    font-weight: bold;
+}
+
+.main-content {
+    margin-top: 120px;
+}
+
+.non-highlight-button {
+    background-color: #fff;
+}
+
+.non-highlight-button i {
+    color: #039BE5;
+}
+
+.highlight-button {
+    background-color: #039BE5;
+}
+
+.highlight-button i {
+    color: #fff;
+}
+
 #wrapper {
     width: 1280px;
     margin: auto;
     margin-bottom: 100px;
 }
+
+/* End General */
+
+/* Header */
 
 #header-bar {
     background-color: #fff;
@@ -62,8 +152,7 @@ p {
 .header-navigation ul li {
     list-style: none;
     float: left;
-    font-family: 'Roboto';
-    font-size: 18px;
+    font-size: 16px;
     height: 100%;
     margin-left: 25px;
 }
@@ -87,7 +176,7 @@ p {
     height: 40px;
     transition: .5s;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 64px;
     outline: none;
     border: none;
@@ -144,7 +233,7 @@ p {
 
 .ui-menu {
     height: 10px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .ui-autocomplete {
@@ -157,6 +246,10 @@ p {
     padding: 16px;
     z-index: 1;
     margin-right 16px;
+}
+
+.ui-autocomplete li {
+    list-style: none;
 }
 
 ul.ui-autocomplete li {
@@ -173,21 +266,9 @@ ul.ui-autocomplete li:hover {
     background-color: rgba(0, 0, 0, 0.08);
 }
 
-.bold-text {
-    font-weight: bold;
-}
+/* End Header */
 
-.ui-autocomplete li {
-    list-style: none;
-}
-
-.main-content {
-    margin-top: 120px;
-}
-
-.product-container {
-    padding: 20px;
-}
+/* Products */
 
 .card {
     height: auto;
@@ -197,13 +278,20 @@ ul.ui-autocomplete li:hover {
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .2), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12);
 }
 
+.card-s {
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .2), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12)
+}
+
+.product-container {
+    padding: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    perspective: 1px;
+}
+
 .product-card {
     background-color: #fff;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12);
-}
-
-.card-s {
-    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .2), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12)
 }
 
 .product-button {
@@ -216,27 +304,9 @@ ul.ui-autocomplete li:hover {
     padding: 10px;
 }
 
-.non-highlight-button {
-    background-color: #fff;
-}
+/* End Products */
 
-.non-highlight-button i {
-    color: #039BE5;
-}
-
-.highlight-button {
-    background-color: #039BE5;
-}
-
-.highlight-button i {
-    color: #fff;
-}
-
-.product-container {
-    border-radius: 15px;
-    overflow: hidden;
-    perspective: 1px;
-}
+/* Footer */
 
 .footer-container {
     background-color: #455A64;
@@ -249,19 +319,18 @@ ul.ui-autocomplete li:hover {
 
 .footer-container ul li {
     list-style: none;
-    font-size: 18px;
+    font-size: 16px;
     color: #fff;
     padding: 20px;
 }
 
 .footer-container ul li a {
-    font-size: 18px;
+    font-size: 16px;
     color: #fff;
 }
 
 .footer-container ul li a:focus,
 .footer-container ul li a:hover {
-    font-size: 18px;
     color: #fff;
     text-decoration: none;
 }
@@ -270,7 +339,4 @@ ul.ui-autocomplete li:hover {
     padding-top: 50px;
 }
 
-.center-elements {
-    align-items: center;
-    margin-top: 100px;
-}
+/* End Footer */
