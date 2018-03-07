@@ -20,7 +20,8 @@
 			@yield('content')
 		</div>
 
-		<script src="/js/jquery/jquery-3.3.1.min.js"></script>
+		<!-- <script src="/js/jquery/jquery-3.3.1.min.js"></script> -->
+          <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 	    <script src="/js/bootstrap/bootstrap.min.js"></script>
 	    <script src="/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 	    <script src="/js/ampleadmin/jquery.slimscroll.js"></script>
