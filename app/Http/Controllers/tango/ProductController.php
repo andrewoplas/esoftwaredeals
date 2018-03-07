@@ -23,11 +23,24 @@ class ProductController extends Controller
           
           foreach ($products as $product) 
           {
-              $quantity = DB::table('licenses')
+               $quantity = DB::table('licenses')
                      ->select(DB::raw('count(*) as license_count'))
-                     ->where('product_id', '=', $product->id)
-                     ->get();
+                     ->where('product_id', '=', $product->id)->get();
+               $category = DB::table('categories')
+                     ->select(DB::raw('category_name, parent_category'))
+                     ->where('id', '=', $product->category)->get();
+
               $product['quantity'] = $quantity[0]->license_count;
+              $product['category_name'] = $category[0]->category_name;
+              $product['parent_category'] = '-';
+              
+              if($category[0]->parent_category > 0)
+              {
+                    $category = DB::table('categories')
+                         ->select(DB::raw('category_name'))
+                         ->where('id', '=', $category[0]->parent_category)->get();
+                    $product['parent_category'] = $category[0]->category_name;                    
+              }
           }
           
           return view('tango.pages.products', compact('products', 'quantity'));
