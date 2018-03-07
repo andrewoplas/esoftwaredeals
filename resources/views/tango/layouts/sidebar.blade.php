@@ -14,7 +14,7 @@
 
           <ul class="nav" id="side-menu">
                <li> 
-                    <a href="index.html" class="waves-effect">
+                    <a href="/tango/dashboard" class="waves-effect">
                          <i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> 
                          <span class="hide-menu"> 
                               Dashboard 

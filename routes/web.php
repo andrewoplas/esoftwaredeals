@@ -7,6 +7,8 @@ Route::post('/tango','Auth\AdminLoginController@login');
 Route::get('/tango/dashboard','AdminController@index');
 Route::get('/tango/logout','Auth\AdminLoginController@logout');
 
+Route::get('/tango/dashboard', 'tango\DashboardController@index');
+
 Route::get('/tango/products', 'tango\ProductController@index');
 Route::get('/tango/products/edit/{product}', 'tango\ProductController@show');
 Route::get('/tango/products/add', 'tango\ProductController@show');
