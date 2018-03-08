@@ -338,3 +338,11 @@ ul.ui-autocomplete li:hover {
 }
 
 /* End Footer */
+
+/* Media Queries */
+
+@media only screen and (max-width: 600px) {
+    #wrapper {
+        padding: 160px 0;
+    }
+}

@@ -2,7 +2,7 @@
 
 Auth::routes();
 
-Route::get('/tango','Auth\AdminLoginController@show');
+Route::get('/tango','Auth\AdminLoginController@show')->name('admin.login');
 Route::post('/tango','Auth\AdminLoginController@login');
 Route::get('/tango/dashboard','AdminController@index');
 Route::get('/tango/logout','Auth\AdminLoginController@logout');
@@ -40,6 +40,12 @@ Route::get('/tango/users/{user}', 'tango\UserController@show');
 Route::delete('/tango/users/delete/{user}', 'tango\UserController@delete');
 
 /* ---------------------------- SITE ---------------------------- */
+
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/register/emailExists', 'Auth\RegisterController@emailExists');
+Route::get('/my-account', 'site\MyAccountController@index');
+Route::get('/my-account/logout', 'Auth\LoginController@userLogout');
 
 Route::get('/', 'site\HomepageController@index' );
 Route::get('/sautocomplete/{id}', 'site\SearchMatchController@autocomplete');

@@ -12,15 +12,15 @@ Esoftwaredeals | Register
     <div class="container-fluid">
         <div class="steps-form-2">
             <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
-                <div class="steps-step-2">
+                <div class="steps-step-2 account-setup-step">
                     <a href="javascript:void(0);" class="btn btn-circle-2 account-setup-button active">1</a>
                     <div class="text">Account Setup</div>
                 </div>
-                <div class="steps-step-2">
+                <div class="steps-step-2 personal-details-step">
                     <a href="javascript:void(0);" class="btn btn-circle-2 personal-details-button">2</a>
                     <div class="text">Personal Details</div>
                 </div>
-                <div class="steps-step-2">
+                <div class="steps-step-2 terms-and-agreement-step">
                     <a href="javascript:void(0);" class="btn btn-circle-2 terms-and-agreement-button">3</a>
                     <div class="text">Terms and Agreement</div>
                 </div>
@@ -31,7 +31,11 @@ Esoftwaredeals | Register
             <div id="account_setup_form">
                 <div class="row registration-form white-box">
                     <div class="text-center">OR</div>
-                    <div class="col-md-6 first-column">
+                    <div class="col-md-6 col-xs-12 first-column">
+                        <div class="preloader">
+                            <div class="indeterminate">
+                            </div>
+                        </div>
                         <h1 class="register-heading-text color-gray">Register</h1>
                         <div class="form-group">
                             <input id="full_name" type="text" class="form-control input-field" name="full_name" placeholder="Full Name" required>
@@ -49,15 +53,19 @@ Esoftwaredeals | Register
                         <div id="account_setup_errors">
                         </div>
                     </div>
-                    <div class="col-md-6 second-column">
+                    <div class="col-md-6 col-xs-12 second-column">
                         <h1 class="login-with-text">Login with<br/> Social Network</h1>
                         <div class="social-network-buttons">
-                            <button type="button" class="btn facebook-button">
-                                Login with Facebook
-                            </button>
-                            <button type="button" class="btn google-button">
-                                Login with Google
-                            </button>
+                            <a href="/login/facebook">
+                                <button type="button" class="btn facebook-button">
+                                    Login with Facebook
+                                </button>
+                            </a>
+                            <a href="/login/google">
+                                <button type="button" class="btn google-button">
+                                    Login with Google
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -68,6 +76,7 @@ Esoftwaredeals | Register
                     <div class="col-md-12 personal-details-column">
                         <h1 class="register-heading-text color-gray">Personal Details</h1>
                         <div class="row">
+                            <input type="hidden" id="user_email" name="userEmail" value="{{ session('data') }}">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input id="phone_number" type="text" class="form-control input-field" name="phone_number" placeholder="Phone Number" required>
@@ -335,7 +344,7 @@ Esoftwaredeals | Register
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input id="state" type="text" class="form-control input-field" name="test" placeholder="State/Province" disabled>
+                                    <input id="state" type="text" class="form-control input-field" name="state" placeholder="State/Province" disabled>
                                     <select id="state_select" class="form-control select-field" name="state" required>
                                         <option value="">--State/Province--</option>
                                         <option value="AL">Alabama</option>
@@ -417,13 +426,18 @@ Esoftwaredeals | Register
 
             <div id="terms_and_agreement_form">
                 <div class="row registration-form white-box">
-                    <div class="col-md-12 personal-details-column">
+                    <div class="col-md-12 terms-and-agreement-column">
                         <h1 class="register-heading-text color-gray">Terms and Agreement</h1>
                         <div class="row">
                             <div class="col-md-12">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <label for="checkbox_accept">I accept</label>
-                                <input type="checkbox" id="checkbox_accept" name="checkbox_accept" required>
+                                <div class="terms-content">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                </div>
+                                <div class="checkbox checkbox-info">
+                                    <input id="checkbox_accept" type="checkbox" required>
+                                    <label for="checkbox_accept">I accept the terms and agreement</label>
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <button type="button" class="btn btn-info btn-outline register-button personal-details-button">Back</button>
@@ -441,4 +455,13 @@ Esoftwaredeals | Register
 
 @section('jsfiles')
     <script src="/js/site/register.js"></script>
+    <script src="/bower_components/slimscroll/jquery.slimscroll.js"></script>
+    <script>
+        $('.terms-content').slimScroll({
+            height: '180px',
+            position: 'right',
+            size: "6px",
+            color: 'rgba(0,0,0,0.5)'
+        });
+    </script>
 @endsection
